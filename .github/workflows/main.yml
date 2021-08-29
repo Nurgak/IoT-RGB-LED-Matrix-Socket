@@ -19,9 +19,9 @@ jobs:
       - name: Test
         env:
           PYTHONPATH: $GITHUB_WORKSPACE/client
+          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
         run: |
-          echo $PYTHONPATH
+          echo $OPENWEATHERMAP_API_KEY
           export PYTHONPATH=$GITHUB_WORKSPACE/client
-          echo $PYTHONPATH
           cd client
           pytest
