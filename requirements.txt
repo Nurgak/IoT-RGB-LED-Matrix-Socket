@@ -4,6 +4,3 @@ pytz
 Pillow
 requests
 qrcode
-
-#pytest
-#pytest-pylint
