@@ -1,0 +1,9 @@
+numpy
+opencv-python
+pytz
+Pillow
+requests
+qrcode
+
+#pytest
+#pytest-pylint

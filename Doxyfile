@@ -1,0 +1,10 @@
+PROJECT_NAME           = "IoT RGB LED Matrix Socket"
+PROJECT_BRIEF          = "Animation generation scripts written in Python"
+OUTPUT_DIRECTORY       = ./docs
+INPUT                  =
+FILE_PATTERNS          = *.md *.py
+EXCLUDE_PATTERNS       = main.py
+RECURSIVE              = YES
+IMAGE_PATH             = ./
+USE_MDFILE_AS_MAINPAGE = README.md
+GENERATE_LATEX         = NO

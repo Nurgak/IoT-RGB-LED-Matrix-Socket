@@ -1,0 +1,6 @@
+.DS_Store
+.pytest*
+__pycache__
+firmware/config.h
+.coverage
+docs
