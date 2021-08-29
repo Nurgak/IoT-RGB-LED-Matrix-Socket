@@ -1,5 +1,7 @@
 # Internet-of-Things RGB LED Matrix via Sockets
 
+[![Documentation](https://img.shields.io/badge/docs-Doxygen-blue)](#) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ![Internet-of-Things RGB LED Matrix](iot_rgb_led_matrix.jpg)
 
 This project in the continuation of the [IoT RGB LED Matrix](https://github.com/Nurgak/IoT-RGB-LED-Matrix). Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate. The [Adafruit LED Matrix library](https://github.com/adafruit/RGB-matrix-Panel) is used to take advantage of its incredibly optimized display update routine.
@@ -174,5 +176,3 @@ An effective way to run the client side is to use Docker. This is a prepared and
 ## License
 
 This project is published under the [MIT license](LICENSE).
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

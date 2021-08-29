@@ -3,6 +3,13 @@ name: CI
 on: [push, pull_request]
 
 jobs:
+  hadolint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - uses: hadolint/hadolint-action@master
+        with:
+          dockerfile: Dockerfile
   test:
     runs-on: ubuntu-latest
     steps:
@@ -18,10 +25,9 @@ jobs:
           pip install pytest pytest-cov pytest-pylint
       - name: Test
         env:
-          PYTHONPATH: $GITHUB_WORKSPACE/client
+          PYTHONPATH: ${{ GITHUB_WORKSPACE }}/client
           OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
         run: |
-          echo $OPENWEATHERMAP_API_KEY
           export PYTHONPATH=$GITHUB_WORKSPACE/client
           cd client
           pytest

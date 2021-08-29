@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.9
 ENV PORT=7777 \
     WIDTH=32 \
     HEIGHT=32 \
@@ -6,11 +6,11 @@ ENV PORT=7777 \
 
 WORKDIR /root/ws
 COPY . .
+# hadolint ignore=DL3008
 RUN apt-get update && \
-    apt-get install -y ffmpeg libsm6 libxext6 && \
-    pip install -r requirements.txt
+    apt-get install --no-install-recommends -y ffmpeg libsm6 libxext6 && \
+    rm -rf /var/lib/apt/lists/* && \
+    pip install --no-cache-dir -r requirements.txt
 
-CMD python client/main.py ${ANIMATION} \
-    --width ${WIDTH} \
-    --height ${HEIGHT} \
-    display ${HOST_IP} --port ${PORT}
+CMD ["python", "client/main.py", "${ANIMATION}", "--width", "${WIDTH}", \
+    "--height", "${HEIGHT}", "display", "${HOST_IP}", "--port", "${PORT}"]
