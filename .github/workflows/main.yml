@@ -18,4 +18,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov pytest-pylint
       - name: Test
-        run: cd client && pytest
+        run: |
+          echo $PYTHONPATH
+          cd client
+          pytest
