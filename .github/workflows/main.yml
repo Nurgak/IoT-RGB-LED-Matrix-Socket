@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: ${{GITHUB_WORKSPACE}}/client
+      PYTHONPATH: ${GITHUB_WORKSPACE}/client
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
