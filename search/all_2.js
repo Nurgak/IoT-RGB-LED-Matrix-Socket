@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['air_5fpollution_0',['air_pollution',['../namespaceclient_1_1src_1_1air__pollution.html',1,'client::src']]],
+  ['analog_5fclock_1',['analog_clock',['../namespaceclient_1_1animation_1_1analog__clock.html',1,'client::animation']]],
+  ['animate_2',['animate',['../namespaceclient_1_1src_1_1animate.html',1,'client::src']]],
+  ['connect_3',['connect',['../classclient_1_1src_1_1display_1_1Display.html#aebc8813a1c3cf496949f51dbecf78ad1',1,'client::src::display::Display']]],
+  ['coordinates_4',['coordinates',['../classclient_1_1src_1_1weather_1_1Weather.html#aab7e2f30c3cfab27b7bc697a3efc4fbb',1,'client::src::weather::Weather']]],
+  ['digital_5fdata_5',['digital_data',['../namespaceclient_1_1animation_1_1digital__data.html',1,'client::animation']]],
+  ['display_6',['display',['../namespaceclient_1_1src_1_1display.html',1,'client::src']]],
+  ['fire_7',['fire',['../namespaceclient_1_1animation_1_1fire.html',1,'client::animation']]],
+  ['game_5fof_5flife_8',['game_of_life',['../namespaceclient_1_1animation_1_1game__of__life.html',1,'client::animation']]],
+  ['localtime_9',['localtime',['../namespaceclient_1_1src_1_1localtime.html',1,'client::src']]],
+  ['maze_10',['maze',['../namespaceclient_1_1animation_1_1maze.html',1,'client::animation']]],
+  ['qr_5fcode_11',['qr_code',['../namespaceclient_1_1animation_1_1qr__code.html',1,'client::animation']]],
+  ['save_12',['save',['../namespaceclient_1_1src_1_1save.html',1,'client::src']]],
+  ['test_5fanimation_13',['test_animation',['../namespaceclient_1_1test_1_1test__animation.html',1,'client::test']]],
+  ['text_14',['text',['../namespaceclient_1_1src_1_1text.html',1,'client::src']]],
+  ['water_15',['water',['../namespaceclient_1_1animation_1_1water.html',1,'client::animation']]],
+  ['weather_16',['weather',['../namespaceclient_1_1src_1_1weather.html',1,'client::src']]],
+  ['word_5fclock_5fenglish_17',['word_clock_english',['../namespaceclient_1_1animation_1_1word__clock__english.html',1,'client::animation']]],
+  ['word_5fclock_5fjapanese_18',['word_clock_japanese',['../namespaceclient_1_1animation_1_1word__clock__japanese.html',1,'client::animation']]]
+];
