@@ -179,7 +179,7 @@ This command will run the `AnalogClock` animation by default, other parameters a
 
 #### Docker compose
 
-Docker compose allows to configure and run the script, in the Docker container, in the background (`-d` flag for the daemon) as well as make sure the Docker instance restarts upon reboot. See the `docker-compose.yml` file for details.
+Docker compose allows to configure and run the script, in the Docker container, in the background (`-d` flag for the detach) as well as make sure the Docker instance restarts upon reboot. See the `docker-compose.yml` file for details.
 
     docker-compose up -d
 
