@@ -1,6 +1,4 @@
-numpy
-opencv-python
-pytz
-Pillow
+pendulum
 requests
 qrcode
+numpy-hilbert-curve

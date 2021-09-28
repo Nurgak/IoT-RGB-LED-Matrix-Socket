@@ -8,11 +8,12 @@ import numpy as np
 
 class Display:
     """! RGB matrix panel socket client class."""
+
     __socket = None
     __screen = None
     __connected = False
 
-    def __init__(self, server: str, port: int=7777, timeout: int=3):
+    def __init__(self, server: str, port: int = 7777, timeout: int = 3.0):
         """! Constructor.
         @param server The server IP address.
         @param port The server port number.
@@ -23,7 +24,7 @@ class Display:
 
     def connect(self) -> bool:
         """! Connect to the server.
-        @return Status of the connection.
+        @return Status of the connection: True if connected, False if disconnected.
         """
         if not self.__connected:
             logging.info("[%s] Connecting to display...", self.__class__.__name__)
@@ -36,18 +37,25 @@ class Display:
                 self.__connected = True
             except ConnectionRefusedError:  # pragma: no cover
                 logging.warning("[%s] Connection refused.", self.__class__.__name__)
-            except (socket.timeout, ConnectionAbortedError,
-                BlockingIOError) as error:  # pragma: no cover
-                logging.warning("[%s] Connection error: %s", self.__class__.__name__, error)
+            except (
+                socket.timeout,
+                ConnectionAbortedError,
+                BlockingIOError,
+                OSError,
+            ) as error:  # pragma: no cover
+                logging.warning(
+                    "[%s] Connection error: %s", self.__class__.__name__, error
+                )
 
         return self.__connected
 
     def update(self, screen: np.ndarray) -> bool:
-        """! Update the screen. The screen will not be updated if the display has
-        not changed from the previous update.
+        """! Update the screen. The screen will not be updated if the display has not changed from
+        the previous update.
         @return True if the screen was updated, false otherwise.
         """
         if np.all(screen == self.__screen):  # pragma: no cover
+            logging.debug("[%s] No changes on display.", self.__class__.__name__)
             return False
 
         if not self.connect():
@@ -58,17 +66,21 @@ class Display:
 
         try:
             self.__socket.sendall(packed)
-        except (socket.timeout, BrokenPipeError, ConnectionResetError):  # pragma: no cover
+        except (
+            socket.timeout,
+            BrokenPipeError,
+            ConnectionResetError,
+        ):  # pragma: no cover
             logging.warning("[%s] Disconnected.", self.__class__.__name__)
             self.__connected = False
             return False
 
         try:
             response = self.__socket.recv(1024)
-            if response == b'0x4':
+            if response == b"0x4":
                 logging.info("[%s] Server closed, exiting.", self.__class__.__name__)
                 sys.exit(0)
-        except socket.timeout:  # pragma: no cover
+        except (socket.timeout, ConnectionResetError):  # pragma: no cover
             logging.warning("[%s] Acknowledge timeout.", self.__class__.__name__)
             self.__socket.close()
             self.__connected = False
@@ -83,8 +95,10 @@ class Display:
         @return The packed data to be sent over a socket connection to the screen.
         """
         if screen.shape[0] == 32:
+            # Split the top and bottom halves to compress them.
             data_top, data_bottom = screen[:16] >> 5, screen[16:] >> 5
         else:
+            # Use a dummy black screen for a 16-pixel height display.
             data_top, data_bottom = screen >> 5, np.zeros_like(screen)
 
         bit1 = ((data_top >> 0) & 1) << np.array([2, 3, 4], np.uint8)
