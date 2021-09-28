@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['localtime_0',['Localtime',['../classclient_1_1src_1_1localtime_1_1Localtime.html',1,'client::src::localtime']]]
+  ['internet_2dof_2dthings_20rgb_20led_20matrix_20via_20sockets_0',['Internet-of-Things RGB LED Matrix via Sockets',['../index.html',1,'']]]
 ];

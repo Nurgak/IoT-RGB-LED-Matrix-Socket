@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IoT RGB LED Matrix Socket: client.src.weather.Weather Class Reference</title>
+<title>Internet-of-Things RGB LED Matrix via Sockets: client.src.weather.Weather Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IoT RGB LED Matrix Socket
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: , commit:</span>
    </div>
-   <div id="projectbrief">Animation generation scripts written in Python</div>
+   <div id="projectbrief">Animation generation scripts</div>
   </td>
  </tr>
  </tbody>
@@ -74,33 +74,50 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Obtain weather information class.  
+<p>Fetches weather data from OpenWeatherMap API, when provided with a valid key.  
  <a href="classclient_1_1src_1_1weather_1_1Weather.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for client.src.weather.Weather:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classclient_1_1src_1_1weather_1_1Weather.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a55f2608e0e75df6b320b9d5024a292dc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a55f2608e0e75df6b320b9d5024a292dc">__init__</a> (self, str key, str location)</td></tr>
-<tr class="memdesc:a55f2608e0e75df6b320b9d5024a292dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a55f2608e0e75df6b320b9d5024a292dc">More...</a><br /></td></tr>
-<tr class="separator:a55f2608e0e75df6b320b9d5024a292dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42814692332ec356add59234815f2554"><td class="memItemLeft" align="right" valign="top"><a id="a42814692332ec356add59234815f2554" name="a42814692332ec356add59234815f2554"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td></tr>
-<tr class="memdesc:a42814692332ec356add59234815f2554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update weather data. <br /></td></tr>
-<tr class="separator:a42814692332ec356add59234815f2554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7e2f30c3cfab27b7bc697a3efc4fbb"><td class="memItemLeft" align="right" valign="top">(int, int)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#aab7e2f30c3cfab27b7bc697a3efc4fbb">coordinates</a> (self)</td></tr>
-<tr class="memdesc:aab7e2f30c3cfab27b7bc697a3efc4fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return location coordinates in latitude/longitude.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#aab7e2f30c3cfab27b7bc697a3efc4fbb">More...</a><br /></td></tr>
-<tr class="separator:aab7e2f30c3cfab27b7bc697a3efc4fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ed2fb23309a2cfcc3fb32b589e8f08"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a07ed2fb23309a2cfcc3fb32b589e8f08">temperature</a> (self)</td></tr>
-<tr class="memdesc:a07ed2fb23309a2cfcc3fb32b589e8f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current temperature in degrees Celcius.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a07ed2fb23309a2cfcc3fb32b589e8f08">More...</a><br /></td></tr>
-<tr class="separator:a07ed2fb23309a2cfcc3fb32b589e8f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd4390ce0c5642e1835a7cfc1032becb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#acd4390ce0c5642e1835a7cfc1032becb">humidity</a> (self)</td></tr>
-<tr class="memdesc:acd4390ce0c5642e1835a7cfc1032becb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current relative humidity in percent.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#acd4390ce0c5642e1835a7cfc1032becb">More...</a><br /></td></tr>
-<tr class="separator:acd4390ce0c5642e1835a7cfc1032becb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1c97c5e8a52a52ec62d13999bebf4e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a2f1c97c5e8a52a52ec62d13999bebf4e">__init__</a> (self, str key, str location, int update_delay=5 *60)</td></tr>
+<tr class="memdesc:a2f1c97c5e8a52a52ec62d13999bebf4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a2f1c97c5e8a52a52ec62d13999bebf4e">More...</a><br /></td></tr>
+<tr class="separator:a2f1c97c5e8a52a52ec62d13999bebf4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bc27e656fc1c6eea20bcdb065991d7"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a67bc27e656fc1c6eea20bcdb065991d7">__str__</a> (self)</td></tr>
+<tr class="memdesc:a67bc27e656fc1c6eea20bcdb065991d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string format of the weather information.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a67bc27e656fc1c6eea20bcdb065991d7">More...</a><br /></td></tr>
+<tr class="separator:a67bc27e656fc1c6eea20bcdb065991d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8811ba2ef1bf7d59988d1cd14046018"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#ab8811ba2ef1bf7d59988d1cd14046018">update</a> (self)</td></tr>
+<tr class="memdesc:ab8811ba2ef1bf7d59988d1cd14046018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update weather and air pollution data.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#ab8811ba2ef1bf7d59988d1cd14046018">More...</a><br /></td></tr>
+<tr class="separator:ab8811ba2ef1bf7d59988d1cd14046018"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac433ca62d09bc6bb9f3b8240aa0d18b3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#ac433ca62d09bc6bb9f3b8240aa0d18b3">temperature</a> (self)</td></tr>
+<tr class="memdesc:ac433ca62d09bc6bb9f3b8240aa0d18b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current temperature for the configured location.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#ac433ca62d09bc6bb9f3b8240aa0d18b3">More...</a><br /></td></tr>
+<tr class="separator:ac433ca62d09bc6bb9f3b8240aa0d18b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1534043cf61be7d03be3f7e53960dc7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#ae1534043cf61be7d03be3f7e53960dc7">humidity</a> (self)</td></tr>
+<tr class="memdesc:ae1534043cf61be7d03be3f7e53960dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current relative humidity for the configured location.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#ae1534043cf61be7d03be3f7e53960dc7">More...</a><br /></td></tr>
+<tr class="separator:ae1534043cf61be7d03be3f7e53960dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9cd71a27ba8c76d7e53a41ad327f5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a9d9cd71a27ba8c76d7e53a41ad327f5a">aqi</a> (self)</td></tr>
+<tr class="memdesc:a9d9cd71a27ba8c76d7e53a41ad327f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the air quality index for the configured location.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a9d9cd71a27ba8c76d7e53a41ad327f5a">More...</a><br /></td></tr>
+<tr class="separator:a9d9cd71a27ba8c76d7e53a41ad327f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce39f9e19727800e58dae68a9b8dc54"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a0ce39f9e19727800e58dae68a9b8dc54">aqi_text</a> (self)</td></tr>
+<tr class="memdesc:a0ce39f9e19727800e58dae68a9b8dc54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the air quality as text for the configured location.  <a href="classclient_1_1src_1_1weather_1_1Weather.html#a0ce39f9e19727800e58dae68a9b8dc54">More...</a><br /></td></tr>
+<tr class="separator:a0ce39f9e19727800e58dae68a9b8dc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Obtain weather information class. </p>
+<div class="textblock"><p >Fetches weather data from OpenWeatherMap API, when provided with a valid key. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>This script requires one to have an account with OpenWeatherMap and provide the API key so it can fetch the data.</dd></dl>
+<p>The update rate can be set when instantizing the class, by default it is set to 5 minutes. The API allows up to 60 calls/minute and 1 million calls/month, on the free plan. With a 5 minute interval these thresholds are never reached.</p>
+<dl class="section note"><dt>Note</dt><dd>There are two separate calls: one for the weather and another for the air quality.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://openweathermap.org">https://openweathermap.org</a> </dd>
+<dd>
+<a href="https://openweathermap.org/api/air-pollution">https://openweathermap.org/api/air-pollution</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a55f2608e0e75df6b320b9d5024a292dc" name="a55f2608e0e75df6b320b9d5024a292dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55f2608e0e75df6b320b9d5024a292dc">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="a2f1c97c5e8a52a52ec62d13999bebf4e" name="a2f1c97c5e8a52a52ec62d13999bebf4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1c97c5e8a52a52ec62d13999bebf4e">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,7 +138,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>location</em>&#160;</td>
+          <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>update_delay</em> = <code>5&#160;*&#160;60</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -135,7 +158,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">key</td><td>The OpenWeatherMap API key. </td></tr>
-    <tr><td class="paramname">location</td><td>Target location. </td></tr>
+    <tr><td class="paramname">location</td><td>Location name, e.g. <code>Tokyo</code>. </td></tr>
+    <tr><td class="paramname">update_delay</td><td>Time between update requests, in seconds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -143,14 +167,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aab7e2f30c3cfab27b7bc697a3efc4fbb" name="aab7e2f30c3cfab27b7bc697a3efc4fbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7e2f30c3cfab27b7bc697a3efc4fbb">&#9670;&nbsp;</a></span>coordinates()</h2>
+<a id="a67bc27e656fc1c6eea20bcdb065991d7" name="a67bc27e656fc1c6eea20bcdb065991d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bc27e656fc1c6eea20bcdb065991d7">&#9670;&nbsp;</a></span>__str__()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"> (int, int) client.src.weather.Weather.coordinates </td>
+          <td class="memname"> str client.src.weather.Weather.__str__ </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -159,19 +183,19 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return location coordinates in latitude/longitude. </p>
-<dl class="section return"><dt>Returns</dt><dd>Location latitude and longitude. </dd></dl>
+<p>Return a string format of the weather information. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current weather and air pollution JSON arrays. </dd></dl>
 
 </div>
 </div>
-<a id="acd4390ce0c5642e1835a7cfc1032becb" name="acd4390ce0c5642e1835a7cfc1032becb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd4390ce0c5642e1835a7cfc1032becb">&#9670;&nbsp;</a></span>humidity()</h2>
+<a id="a9d9cd71a27ba8c76d7e53a41ad327f5a" name="a9d9cd71a27ba8c76d7e53a41ad327f5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9cd71a27ba8c76d7e53a41ad327f5a">&#9670;&nbsp;</a></span>aqi()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def client.src.weather.Weather.humidity </td>
+          <td class="memname"> int client.src.weather.Weather.aqi </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -180,19 +204,30 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return current relative humidity in percent. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current humidity. </dd></dl>
+<p>Return the air quality index for the configured location. </p>
+<p >Possible values range from 0-5: </p><ul>
+<li><code>0</code> Unknown. </li>
+<li><code>1</code> Good. </li>
+<li><code>2</code> Fair. </li>
+<li><code>3</code> Moderate. </li>
+<li><code>4</code> Poor. </li>
+<li><code>5</code> Very Poor.</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>The air quality index from 0 to 5.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://openweathermap.org/api/air-pollution#fields">https://openweathermap.org/api/air-pollution#fields</a> </dd>
+<dd>
+<a href="https://en.wikipedia.org/wiki/Air_quality_index#CAQI">https://en.wikipedia.org/wiki/Air_quality_index#CAQI</a> </dd></dl>
 
 </div>
 </div>
-<a id="a07ed2fb23309a2cfcc3fb32b589e8f08" name="a07ed2fb23309a2cfcc3fb32b589e8f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ed2fb23309a2cfcc3fb32b589e8f08">&#9670;&nbsp;</a></span>temperature()</h2>
+<a id="a0ce39f9e19727800e58dae68a9b8dc54" name="a0ce39f9e19727800e58dae68a9b8dc54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce39f9e19727800e58dae68a9b8dc54">&#9670;&nbsp;</a></span>aqi_text()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def client.src.weather.Weather.temperature </td>
+          <td class="memname"> str client.src.weather.Weather.aqi_text </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -201,8 +236,80 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return current temperature in degrees Celcius. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current tempereature. </dd></dl>
+<p>Return the air quality as text for the configured location. </p>
+<dl class="section return"><dt>Returns</dt><dd>The air quality as a qualitative text: <ul>
+<li><code>N/A</code>. </li>
+<li><code>Good</code> </li>
+<li><code>Fair</code> </li>
+<li><code>Mod</code>. </li>
+<li><code>Poor</code> </li>
+<li><code>Bad</code> </li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classclient_1_1src_1_1weather_1_1Weather.html#a9d9cd71a27ba8c76d7e53a41ad327f5a" title="Return the air quality index for the configured location.">aqi</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae1534043cf61be7d03be3f7e53960dc7" name="ae1534043cf61be7d03be3f7e53960dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1534043cf61be7d03be3f7e53960dc7">&#9670;&nbsp;</a></span>humidity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float client.src.weather.Weather.humidity </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return current relative humidity for the configured location. </p>
+<dl class="section return"><dt>Returns</dt><dd>Relative humidity in percent, from 0 to 100, or <code>np.nan</code> if unknown. </dd></dl>
+
+</div>
+</div>
+<a id="ac433ca62d09bc6bb9f3b8240aa0d18b3" name="ac433ca62d09bc6bb9f3b8240aa0d18b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac433ca62d09bc6bb9f3b8240aa0d18b3">&#9670;&nbsp;</a></span>temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float client.src.weather.Weather.temperature </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return current temperature for the configured location. </p>
+<dl class="section return"><dt>Returns</dt><dd>Tempereature in degrees Celcius, or <code>np.nan</code> if unknown. </dd></dl>
+
+</div>
+</div>
+<a id="ab8811ba2ef1bf7d59988d1cd14046018" name="ab8811ba2ef1bf7d59988d1cd14046018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8811ba2ef1bf7d59988d1cd14046018">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool client.src.weather.Weather.update </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update weather and air pollution data. </p>
+<dl class="section return"><dt>Returns</dt><dd>State of the update operation: <code>True</code> if successful, <code>False</code> otherwise. </dd></dl>
 
 </div>
 </div>

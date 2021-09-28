@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IoT RGB LED Matrix Socket: client.src.display.Display Class Reference</title>
+<title>Internet-of-Things RGB LED Matrix via Sockets: client.src.display.Display Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IoT RGB LED Matrix Socket
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: , commit:</span>
    </div>
-   <div id="projectbrief">Animation generation scripts written in Python</div>
+   <div id="projectbrief">Animation generation scripts</div>
   </td>
  </tr>
  </tbody>
@@ -80,9 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a546e2a0bf48e756c715b1f6c993868c9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#a546e2a0bf48e756c715b1f6c993868c9">__init__</a> (self, str server, int port=7777, int timeout=3)</td></tr>
-<tr class="memdesc:a546e2a0bf48e756c715b1f6c993868c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1display_1_1Display.html#a546e2a0bf48e756c715b1f6c993868c9">More...</a><br /></td></tr>
-<tr class="separator:a546e2a0bf48e756c715b1f6c993868c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24295ded93bfdb6aae17ad77f3e29a18"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#a24295ded93bfdb6aae17ad77f3e29a18">__init__</a> (self, str server, int port=7777, int timeout=3.0)</td></tr>
+<tr class="memdesc:a24295ded93bfdb6aae17ad77f3e29a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1display_1_1Display.html#a24295ded93bfdb6aae17ad77f3e29a18">More...</a><br /></td></tr>
+<tr class="separator:a24295ded93bfdb6aae17ad77f3e29a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc8813a1c3cf496949f51dbecf78ad1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#aebc8813a1c3cf496949f51dbecf78ad1">connect</a> (self)</td></tr>
 <tr class="memdesc:aebc8813a1c3cf496949f51dbecf78ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to the server.  <a href="classclient_1_1src_1_1display_1_1Display.html#aebc8813a1c3cf496949f51dbecf78ad1">More...</a><br /></td></tr>
 <tr class="separator:aebc8813a1c3cf496949f51dbecf78ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,8 +99,8 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >RGB matrix panel socket client class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a546e2a0bf48e756c715b1f6c993868c9" name="a546e2a0bf48e756c715b1f6c993868c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a546e2a0bf48e756c715b1f6c993868c9">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="a24295ded93bfdb6aae17ad77f3e29a18" name="a24295ded93bfdb6aae17ad77f3e29a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24295ded93bfdb6aae17ad77f3e29a18">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,14 +120,14 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int &#160;</td>
           <td class="paramname"><em>port</em> = <code>7777</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>3</code>&#160;</td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>3.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -167,7 +167,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Connect to the server. </p>
-<dl class="section return"><dt>Returns</dt><dd>Status of the connection. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the connection: True if connected, False if disconnected. </dd></dl>
 
 </div>
 </div>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5ftime_0',['get_time',['../classclient_1_1animation_1_1word__clock__english_1_1WordClockEnglish.html#afc5b12711730c3cc8162d3768f59507c',1,'client.animation.word_clock_english.WordClockEnglish.get_time()'],['../classclient_1_1animation_1_1word__clock__japanese_1_1WordClockJapanese.html#a492236afa7ea5c6048c501efb8e0ec15',1,'client.animation.word_clock_japanese.WordClockJapanese.get_time()']]]
+  ['get_0',['get',['../classclient_1_1animation_1_1rgb_1_1HilbertCurveGenerator.html#a3203ba8053739f3e248957d3776cb11d',1,'client::animation::rgb::HilbertCurveGenerator']]],
+  ['get_5ftime_1',['get_time',['../classclient_1_1animation_1_1word__clock_1_1WordClock.html#aa200a9e449830eae5058194e82f231c8',1,'client.animation.word_clock.WordClock.get_time()'],['../classclient_1_1animation_1_1word__clock_1_1English.html#ab40428f21872b995f3208903b0942703',1,'client.animation.word_clock.English.get_time()'],['../classclient_1_1animation_1_1word__clock_1_1Japanese.html#ab9639e1a69db990e75f238d4803e2487',1,'client.animation.word_clock.Japanese.get_time()']]]
 ];

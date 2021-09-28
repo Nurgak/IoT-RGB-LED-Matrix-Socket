@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IoT RGB LED Matrix Socket: Internet-of-Things RGB LED Matrix via Sockets</title>
+<title>Internet-of-Things RGB LED Matrix via Sockets: Internet-of-Things RGB LED Matrix via Sockets</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IoT RGB LED Matrix Socket
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: , commit:</span>
    </div>
-   <div id="projectbrief">Animation generation scripts written in Python</div>
+   <div id="projectbrief">Animation generation scripts</div>
   </td>
  </tr>
  </tbody>
@@ -66,46 +66,53 @@ $(function() {
   <div class="headertitle"><div class="title">Internet-of-Things RGB LED Matrix via Sockets </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="#"><img src="https://img.shields.io/badge/docs-Doxygen-blue" alt="Documentation" class="inline"/></a> [<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE)</p>
-<p ><img src="iot_rgb_led_matrix.jpg" alt="Internet-of-Things RGB LED Matrix" class="inline"/></p>
-<p >This project in the continuation of the <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix">IoT RGB LED Matrix</a>. Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate. The <a href="https://github.com/adafruit/RGB-matrix-Panel">Adafruit LED Matrix library</a> is used to take advantage of its incredibly optimized display update routine.</p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/Nurgak/Iot/actions"><img src="https://github.com/Nurgak/iot.../workflows/test/badge.svg" alt="CI pipeline status" style="pointer-events: none;" class="inline"/></a> <a href="#"><img src="https://img.shields.io/badge/docs-Doxygen-blue" alt="Documentation" class="inline"/></a> [<img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE) <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" style="pointer-events: none;" class="inline"/></a></p>
+<p ><img src="./iot_rgb_led_matrix.jpg" alt="Internet-of-Things RGB LED Matrix" class="inline"/></p>
+<p >This project in the continuation of the <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix">IoT RGB LED Matrix</a>. Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate, allowing to display remotely generated animations. The <a href="https://github.com/adafruit/RGB-matrix-Panel">Adafruit LED Matrix library</a> is used to take advantage of its incredibly optimized display update routine.</p>
 <p >The ESP32 acts as the socket server, anything that is recieved from a client is directly read to the screen buffer. Therefore, the data packing must be done on the client side. Having the ESP32 as the server and the Python side the client allows to send data only when needed - when screen needs to be updated with new data.</p>
-<p >Because of the way the data is compressed, only the 3 most significant bits are used for the display, allowing <em>only 8</em> shades per color channel, or 8^3=512 colors.</p>
-<p >Code has been [extensively documented using Doxygen]().</p>
+<p >Because of the way the data is handled in the Adafruit LED Matrix library, only the 3 most significant bits (MSB) are used for the display, allowing <em>only</em> 8 shades per color channel, or 8^3=512 colors. Therefore, when creating animations, one must keep in mind that only the 3 MSB are actually relevant.</p>
+<p >All code, animations and options are [extensively documented using Doxygen]().</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Example animations</h1>
-<p >Having the client written in Python makes it straight forward to create animations using standard image processing tools, such as OpenCV, and link them to various APIs and display them quickly.</p>
-<p >A list of examples have been prepared. To view any of the examples execute them using the example command in the list. The environment variable <code>$HOST_IP</code> represents the ESP32 IP address.</p>
-<table class="markdownTable">
+<p >Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.</p>
+<p >To display an animation on the matrix call the following command </p><pre class="fragment">./main.py $ANIMATION [OPTIONS] display $HOST_IP
+</pre><p> For example </p><pre class="fragment">./main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
+</pre> <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Animation   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Example   </th><th class="markdownTableHeadNone">Command    </th></tr>
+<th class="markdownTableHeadNone">Animation   </th><th class="markdownTableHeadNone">Preview   </th><th class="markdownTableHeadNone">Command    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Analog clock   </td><td class="markdownTableBodyNone">A face emulating an analog clock with hour, minute and second hands. Optionally, the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">time zone</a> can be set, defaulting to GMT when not defined.   </td><td class="markdownTableBodyNone"><img src="AnalogClock.png" alt="" class="inline" title="Analog clock"/>  </td><td class="markdownTableBodyNone"><code>./main.py AnalogClock --timezone Asia/Tokyo display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Analog clock animation   </td><td class="markdownTableBodyNone"><img src="analog_clock.AnalogClock.gif" alt="" class="inline" title="Analog clock animation"/>  </td><td class="markdownTableBodyNone"><code>analog_clock.AnalogClock -t Asia/Tokyo</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Conway's Game of Life in Color   </td><td class="markdownTableBodyNone">[Cellular automaton](<a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">https://en.wikipedia.org/wiki/Conway's_Game_of_Life</a>) iterative animation based on its state and some simple rules. A new pixel adopts the average color of its adjacent parents.   </td><td class="markdownTableBodyNone"><img src="GameOfLifeColor.gif" alt="" class="inline" title="Conway's Game of Life"/>  </td><td class="markdownTableBodyNone"><code>./main.py GameOfLifeColor display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Camera output animation   </td><td class="markdownTableBodyNone"><img src="client/media/camera.Camera.gif" alt="Camera output animation" class="inline"/>   </td><td class="markdownTableBodyNone"><code>camera.Camera</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Conway's Game of Life fast   </td><td class="markdownTableBodyNone">Same as the previous animation, but only in one color and optimized for speed.   </td><td class="markdownTableBodyNone"><img src="GameOfLifeFast.gif" alt="" class="inline" title="Conway's Game of Life"/>  </td><td class="markdownTableBodyNone"><code>./main.py GameOfLifeFast display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Conway's Game of Life in color   </td><td class="markdownTableBodyNone"><img src="game_of_life.GameOfLifeColor.gif" alt="" class="inline" title="Conway's Game of Life in color"/>  </td><td class="markdownTableBodyNone"><code>game_of_life.GameOfLifeColor</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Digital data   </td><td class="markdownTableBodyNone">Display various data in digital format, using <a href="https://openweathermap.org/api">OpenWeatherMap API</a> and the <em>Small 5x3</em> font. The extra arguments are the <a href="https://openweathermap.org/api">OWM API key</a>, the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">timezone</a> and the <a href="https://openweathermap.org/current#name">city</a> information for the temperature, humidity and air pollution data.   </td><td class="markdownTableBodyNone"><img src="DigitalData.png" alt="" class="inline" title="Digital data"/>  </td><td class="markdownTableBodyNone"><code>./main.py DigitalData --key $OWM_API_KEY -t Asia/Tokyo -c Tokyo display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Conway's Game of Life fast   </td><td class="markdownTableBodyNone"><img src="game_of_life.GameOfLifeFast.gif" alt="" class="inline" title="Conway's Game of Life fast"/>  </td><td class="markdownTableBodyNone"><code>game_of_life.GameOfLifeFast</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Fire   </td><td class="markdownTableBodyNone">A simplistic fire animation.   </td><td class="markdownTableBodyNone"><img src="Fire.gif" alt="" class="inline" title="Fire"/>  </td><td class="markdownTableBodyNone"><code>./main.py Fire display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Digital data display   </td><td class="markdownTableBodyNone"><img src="digital_data.DigitalData.png" alt="" class="inline" title="Digital data display"/>  </td><td class="markdownTableBodyNone"><code>digital_data.DigitalData -t Asia/Tokyo -c Tokyo -k $OWM_API_KEY</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">English word clock   </td><td class="markdownTableBodyNone">Time, but written in English. Using the <em>Small 5x3</em> font.   </td><td class="markdownTableBodyNone"><img src="WordClockEnglish.png" alt="" class="inline" title="English word clock"/>  </td><td class="markdownTableBodyNone"><code>./main.py WordClockEnglish -t Asia/Tokyo display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Generated fire animation   </td><td class="markdownTableBodyNone"><img src="fire.Fire.gif" alt="" class="inline" title="Generated fire animation"/>  </td><td class="markdownTableBodyNone"><code>fire.Fire</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Japanese word clock   </td><td class="markdownTableBodyNone">Time, but written in Japanese Kanji using the <em>Misaki Font</em>.   </td><td class="markdownTableBodyNone"><img src="WordClockJapanese.png" alt="" class="inline" title="Japanese word clock"/>  </td><td class="markdownTableBodyNone"><code>./main.py WordClockJapanese -t Asia/Tokyo display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">English word clock   </td><td class="markdownTableBodyNone"><img src="word_clock.English.png" alt="" class="inline" title="English word clock"/>  </td><td class="markdownTableBodyNone"><code>word_clock.English -t Asia/Tokyo</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Maze generator   </td><td class="markdownTableBodyNone">A maze generator based on the <a href="https://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-elgorithm">Growing Tree algorithm</a>, implemented as a recursive function.   </td><td class="markdownTableBodyNone"><img src="MazeGrowingTree.gif" alt="" class="inline" title="Maze generator"/>  </td><td class="markdownTableBodyNone"><code>./main.py MazeGrowingTree display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Japanese word clock   </td><td class="markdownTableBodyNone"><img src="word_clock.Japanese.png" alt="" class="inline" title="Japanese word clock"/>  </td><td class="markdownTableBodyNone"><code>word_clock.Japanese -t Asia/Tokyo</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">QR code   </td><td class="markdownTableBodyNone">Text converted to QR code.   </td><td class="markdownTableBodyNone"><img src="QRCode.png" alt="" class="inline" title="QR code"/>  </td><td class="markdownTableBodyNone"><code>./main.py QRCode --text "test" display $HOST_IP</code>    </td></tr>
+<td class="markdownTableBodyNone">Growing tree maze generator   </td><td class="markdownTableBodyNone"><img src="rgb.GrowingTree.gif" alt="" class="inline" title="Growing tree maze generator"/>  </td><td class="markdownTableBodyNone"><code>rgb.GrowingTree</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Water   </td><td class="markdownTableBodyNone">A water drop animation.   </td><td class="markdownTableBodyNone"><img src="Water.gif" alt="" class="inline" title="Water"/>  </td><td class="markdownTableBodyNone"><code>./main.py Water display $HOST_IP</code>   </td></tr>
+<td class="markdownTableBodyNone">Hilbert curve animation   </td><td class="markdownTableBodyNone"><img src="rgb.HilbertCurve.gif" alt="" class="inline" title="Hilbert curve animation"/>  </td><td class="markdownTableBodyNone"><code>rgb.HilbertCurve</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Mandelbrot fractal animation   </td><td class="markdownTableBodyNone"><img src="rgb.Mandelbrot.gif" alt="" class="inline" title="Mandelbrot fractal animation"/>  </td><td class="markdownTableBodyNone"><code>rgb.Mandelbrot</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Static QR code   </td><td class="markdownTableBodyNone"><img src="qr_code.QRCode.png" alt="" class="inline" title="Static QR code"/>  </td><td class="markdownTableBodyNone"><code>qr_code.QRCode --text "test"</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Generated water drop animation   </td><td class="markdownTableBodyNone"><img src="water.Water.gif" alt="" class="inline" title="Generated water drop animation"/>  </td><td class="markdownTableBodyNone"><code>water.Water</code>   </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Hardware</h1>
-<p >An ESP32 breakout board was used in this project with a <a href="https://hackaday.io/project/28945-iot-rgb-led-matrix-controller-esp32">custom adapter PCB</a>. Although the adapter is not necessary as the ESP32 breakout can be connected to the RGB LED matrix with some cables just as well.</p>
+<p >An ESP32 breakout board was used in this project with a <a href="https://hackaday.io/project/28945-iot-rgb-led-matrix-controller-esp32">custom adapter PCB</a>. Although the adapter is not strictly necessary as the ESP32 breakout can be connected to the RGB LED matrix with some cables just as well.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Pinout</h2>
-<p >The pin assignment is not strict and every pin can be reconfigured to another one, but it is recommended to follow the pinout below so it would work with the unmodified code.</p>
+<p >The pin assignment is not strict and every pin can be reconfigured to another one, but it is recommended to follow the pinout below so it would work with the unmodified code. The only requirement is to have 13 GPIO available.</p>
 <table class="doxtable">
 <tr>
 <th>Pin </th><th>GPIO </th><th>Reference  </th></tr>
@@ -137,7 +144,7 @@ Pinout</h2>
 <td>BL2 </td><td>25  </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md4"></a>
-Installation</h1>
+Software</h1>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Dependencies</h2>
 <p >The ESP32 is programmed via Arduino IDE and needs the following libraries</p>
@@ -150,7 +157,7 @@ Dependencies</h2>
 Firmware</h2>
 <p >The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32. The IP is displayed on the LED matrix when it starts up.</p>
 <p >The WiFi credentials need be provided in the <code>config.h</code> file.</p>
-<p ><img src="ip.jpg" alt="" class="inline" title="IoT RGB LED Matrix showing its IP address upon successful connection to the local network."/></p>
+<p ><img src="./ip.jpg" alt="IoT RGB LED Matrix showing its IP address upon successful connection to the local network." class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Fonts</h2>
 <p >The fonts used in this project are property of their respective creators. As they are free to be redistributed they are also bundeled with this project, but they have their own licenses distinct from this project.</p>
@@ -162,38 +169,37 @@ Fonts</h2>
 Usage</h1>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Main</h2>
-<p >The <code>main.py</code> file imports all the example animations and allows to configure and launch them. This is the beginning of all execution.</p>
-<p >The <code>-h</code> flag will show how to use it. For example </p><pre class="fragment">./main.py -h
+<p >The <code>main.py</code> file, in the <code>client</code> directory, imports all the example animations and allows to configure and launch them. This is the beginning of all execution.</p>
+<p >The <code>-h</code> flag displays how to use it. </p><pre class="fragment">./main.py -h
 </pre><p> Some animations have extra arguments, such as the time zone for the clocks. See the usage for specific animations in the examples section.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Display</h3>
-<p >To display the animation on an RGB LED Matrix add the <code>display</code> suffix with the IP of the ESP32. </p><pre class="fragment">./main.py &lt;Animation name&gt; display 192.168.3.15
+<p >To display the animation on an RGB LED Matrix add the <code>display</code> suffix with the IP of the ESP32. </p><pre class="fragment">./main.py $ANIMATION display $HOST_IP
 </pre> <h3><a class="anchor" id="autotoc_md11"></a>
 Saving</h3>
-<p >To save an animation to a file add the <code>save</code> suffix with the number of frames to save. One frame will result in a static <code>png</code>, more will be saved as a <code>gif</code>. The file name will be <code>&lt;Animation name&gt;.png/gif</code>. </p><pre class="fragment">./main.py &lt;Animation name&gt; save 1
-</pre> <h2><a class="anchor" id="autotoc_md12"></a>
+<p >To save an animation to a file add the <code>save</code> suffix with the number of frames to save. One frame will result in a static <code>png</code>, more will be saved as a <code>gif</code>. The image file name will be <code>$ANIMATION.png/gif</code>. </p><pre class="fragment">./main.py $ANIMATION save $FRAMES
+</pre><p> The saving script acts as a virtual display, decoding the encoded frame as the actual display would. Therefore, as with the real display, only the 3 MSB of the color are relevant.</p>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Docker</h2>
 <p >An effective way to run the client side is to use Docker. This is a prepared and tested environment where all the dependencies are already installed.</p>
+<p >The Docker image was specifically prepared to be (also) compatible with <code>arm32v7</code> architecture, so it would run on a SOC such as a Raspberry Pi.</p>
 <h3><a class="anchor" id="autotoc_md13"></a>
 Build</h3>
-<pre class="fragment">docker build -t iot_rgb_matrix_panel_client .
+<pre class="fragment">docker build -t iot_rgb_led_matrix .
 </pre> <h3><a class="anchor" id="autotoc_md14"></a>
 Run</h3>
-<pre class="fragment">docker run -it --rm -v "$(pwd):/root/ws" \
-    -p 7777:7777 \
-    -e HOST_IP=192.168.3.15 \
-    -e PORT=7777 \
-    -e ANIMATION=AnalogClock \
-    -e WIDTH=32 \
-    -e HEIGHT=32 \
-    iot_rgb_matrix_panel_client
-</pre> <h1><a class="anchor" id="autotoc_md15"></a>
+<p >This command will run the <code>AnalogClock</code> animation by default, other parameters are available (check the <code>Dockerfile</code>). </p><pre class="fragment">docker run -it --rm -e HOST_IP=192.168.3.15 iot_rgb_led_matrix
+</pre> <h3><a class="anchor" id="autotoc_md15"></a>
+Docker compose</h3>
+<p >Docker compose allows to configure and run the script, in the Docker container, in the background (<code>-d</code> flag for the daemon) as well as make sure the Docker instance restarts upon reboot. See the <code>docker-compose.yml</code> file for details. </p><pre class="fragment">docker-compose up -d
+</pre><p> To stop the docker container call the following </p><pre class="fragment">docker-compose down
+</pre> <h1><a class="anchor" id="autotoc_md16"></a>
 Notes</h1>
 <ul>
 <li>This project has only been tested with a 32x32 RGB LED matrix panel.</li>
 <li>The recommended panel is an official <a href="https://www.adafruit.com/product/607">Adafruit one</a>. Cheaper can be had, but experience has shown major luminosity degradation and burn-in issues with those.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 License</h1>
 <p >This project is published under the [MIT license](LICENSE). </p>
 </div></div><!-- PageDoc -->

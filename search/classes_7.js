@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['save_0',['Save',['../classclient_1_1src_1_1save_1_1Save.html',1,'client::src::save']]]
+  ['japanese_0',['Japanese',['../classclient_1_1animation_1_1word__clock_1_1Japanese.html',1,'client::animation::word_clock']]]
 ];

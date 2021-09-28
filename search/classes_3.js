@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['gameoflifecolor_0',['GameOfLifeColor',['../classclient_1_1animation_1_1game__of__life_1_1GameOfLifeColor.html',1,'client::animation::game_of_life']]],
-  ['gameoflifefast_1',['GameOfLifeFast',['../classclient_1_1animation_1_1game__of__life_1_1GameOfLifeFast.html',1,'client::animation::game_of_life']]]
+  ['english_0',['English',['../classclient_1_1animation_1_1word__clock_1_1English.html',1,'client::animation::word_clock']]]
 ];

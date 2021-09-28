@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IoT RGB LED Matrix Socket: client.src.localtime.Localtime Class Reference</title>
+<title>Internet-of-Things RGB LED Matrix via Sockets: client.src.localtime.Localtime Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IoT RGB LED Matrix Socket
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: , commit:</span>
    </div>
-   <div id="projectbrief">Animation generation scripts written in Python</div>
+   <div id="projectbrief">Animation generation scripts</div>
   </td>
  </tr>
  </tbody>
@@ -74,51 +74,62 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Local time class.  
+<p>The local time class provides convenience functions for the various animations needing to keep time.  
  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for client.src.localtime.Localtime:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classclient_1_1src_1_1localtime_1_1Localtime.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ca7385e29e639399a7e91a8ce30e9a5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a0ca7385e29e639399a7e91a8ce30e9a5">__init__</a> (self, str timezone=&quot;GMT&quot;)</td></tr>
-<tr class="memdesc:a0ca7385e29e639399a7e91a8ce30e9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a0ca7385e29e639399a7e91a8ce30e9a5">More...</a><br /></td></tr>
-<tr class="separator:a0ca7385e29e639399a7e91a8ce30e9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1cf4c37f70659d907448fef4601eb1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#afe1cf4c37f70659d907448fef4601eb1">__init__</a> (self, str timezone=&quot;GMT&quot;, float update_rate=30.0)</td></tr>
+<tr class="memdesc:afe1cf4c37f70659d907448fef4601eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#afe1cf4c37f70659d907448fef4601eb1">More...</a><br /></td></tr>
+<tr class="separator:afe1cf4c37f70659d907448fef4601eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70fc6d84725e899fb4484a15c9d37d70"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a70fc6d84725e899fb4484a15c9d37d70">__str__</a> (self)</td></tr>
+<tr class="memdesc:a70fc6d84725e899fb4484a15c9d37d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string format of the time.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a70fc6d84725e899fb4484a15c9d37d70">More...</a><br /></td></tr>
+<tr class="separator:a70fc6d84725e899fb4484a15c9d37d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f851f55fee45fd92acb8bf4d08accd3"><td class="memItemLeft" align="right" valign="top"><a id="a1f851f55fee45fd92acb8bf4d08accd3" name="a1f851f55fee45fd92acb8bf4d08accd3"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td></tr>
 <tr class="memdesc:a1f851f55fee45fd92acb8bf4d08accd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the current time. <br /></td></tr>
 <tr class="separator:a1f851f55fee45fd92acb8bf4d08accd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03801d7a132189f7dbc4f5dd8d552937"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03801d7a132189f7dbc4f5dd8d552937">set_time</a> (self, float stamp)</td></tr>
-<tr class="memdesc:a03801d7a132189f7dbc4f5dd8d552937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the current time.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03801d7a132189f7dbc4f5dd8d552937">More...</a><br /></td></tr>
+<tr class="memdesc:a03801d7a132189f7dbc4f5dd8d552937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the instance time.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03801d7a132189f7dbc4f5dd8d552937">More...</a><br /></td></tr>
 <tr class="separator:a03801d7a132189f7dbc4f5dd8d552937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53ea3fa9291548270ecb01d720424151"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a53ea3fa9291548270ecb01d720424151">hour</a> (self)</td></tr>
-<tr class="memdesc:a53ea3fa9291548270ecb01d720424151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current hour in 24h format.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a53ea3fa9291548270ecb01d720424151">More...</a><br /></td></tr>
+<tr class="memdesc:a53ea3fa9291548270ecb01d720424151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current hour.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a53ea3fa9291548270ecb01d720424151">More...</a><br /></td></tr>
 <tr class="separator:a53ea3fa9291548270ecb01d720424151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c8a3b48111fb3b0fbcb6a1f1c575af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03c8a3b48111fb3b0fbcb6a1f1c575af">minute</a> (self)</td></tr>
-<tr class="memdesc:a03c8a3b48111fb3b0fbcb6a1f1c575af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current minute from 0 to 59.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03c8a3b48111fb3b0fbcb6a1f1c575af">More...</a><br /></td></tr>
+<tr class="memdesc:a03c8a3b48111fb3b0fbcb6a1f1c575af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current minute.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a03c8a3b48111fb3b0fbcb6a1f1c575af">More...</a><br /></td></tr>
 <tr class="separator:a03c8a3b48111fb3b0fbcb6a1f1c575af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a944fd1b476fc81101ab1a3689c003e78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a944fd1b476fc81101ab1a3689c003e78">second</a> (self)</td></tr>
-<tr class="memdesc:a944fd1b476fc81101ab1a3689c003e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current second from 0 to 59.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a944fd1b476fc81101ab1a3689c003e78">More...</a><br /></td></tr>
+<tr class="memdesc:a944fd1b476fc81101ab1a3689c003e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current second.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a944fd1b476fc81101ab1a3689c003e78">More...</a><br /></td></tr>
 <tr class="separator:a944fd1b476fc81101ab1a3689c003e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f73376e7842cc075873590e677d09ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a7f73376e7842cc075873590e677d09ef">millisecond</a> (self)</td></tr>
-<tr class="memdesc:a7f73376e7842cc075873590e677d09ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current millisecond from 0 to 999.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a7f73376e7842cc075873590e677d09ef">More...</a><br /></td></tr>
+<tr class="memdesc:a7f73376e7842cc075873590e677d09ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current millisecond.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a7f73376e7842cc075873590e677d09ef">More...</a><br /></td></tr>
 <tr class="separator:a7f73376e7842cc075873590e677d09ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a878eed1598fe542be4132247ea51cfeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a878eed1598fe542be4132247ea51cfeb">month</a> (self)</td></tr>
-<tr class="memdesc:a878eed1598fe542be4132247ea51cfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current month from 0 to 11.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a878eed1598fe542be4132247ea51cfeb">More...</a><br /></td></tr>
+<tr class="memdesc:a878eed1598fe542be4132247ea51cfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current month.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a878eed1598fe542be4132247ea51cfeb">More...</a><br /></td></tr>
 <tr class="separator:a878eed1598fe542be4132247ea51cfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09bebb8d18fe993c3564ed2380d0b4f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a09bebb8d18fe993c3564ed2380d0b4f1">day</a> (self)</td></tr>
-<tr class="memdesc:a09bebb8d18fe993c3564ed2380d0b4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current day of the month from 0 to 31.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a09bebb8d18fe993c3564ed2380d0b4f1">More...</a><br /></td></tr>
+<tr class="memdesc:a09bebb8d18fe993c3564ed2380d0b4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current day of the month.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a09bebb8d18fe993c3564ed2380d0b4f1">More...</a><br /></td></tr>
 <tr class="separator:a09bebb8d18fe993c3564ed2380d0b4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81ed550cfc6d2cbf264ea04cc97e99fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#a81ed550cfc6d2cbf264ea04cc97e99fa">year</a> (self)</td></tr>
 <tr class="memdesc:a81ed550cfc6d2cbf264ea04cc97e99fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current year.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#a81ed550cfc6d2cbf264ea04cc97e99fa">More...</a><br /></td></tr>
 <tr class="separator:a81ed550cfc6d2cbf264ea04cc97e99fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af462d30fdc9dfc31d4d6d4a3c83d417e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1localtime_1_1Localtime.html#af462d30fdc9dfc31d4d6d4a3c83d417e">weekday</a> (self)</td></tr>
-<tr class="memdesc:af462d30fdc9dfc31d4d6d4a3c83d417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current day of the week from 0 to 6, 0 representing Monday.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#af462d30fdc9dfc31d4d6d4a3c83d417e">More...</a><br /></td></tr>
+<tr class="memdesc:af462d30fdc9dfc31d4d6d4a3c83d417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current day of the week.  <a href="classclient_1_1src_1_1localtime_1_1Localtime.html#af462d30fdc9dfc31d4d6d4a3c83d417e">More...</a><br /></td></tr>
 <tr class="separator:af462d30fdc9dfc31d4d6d4a3c83d417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Local time class. </p>
+<div class="textblock"><p >The local time class provides convenience functions for the various animations needing to keep time. </p>
+<p >The instance updates itself asychronously from the animation at the requested update rate. If the update rate is set to 0 the automatic update is disabled. This is useful when testing for a particular time.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://docs.python.org/3/library/datetime.html">https://docs.python.org/3/library/datetime.html</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0ca7385e29e639399a7e91a8ce30e9a5" name="a0ca7385e29e639399a7e91a8ce30e9a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ca7385e29e639399a7e91a8ce30e9a5">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="afe1cf4c37f70659d907448fef4601eb1" name="afe1cf4c37f70659d907448fef4601eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe1cf4c37f70659d907448fef4601eb1">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,8 +143,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>timezone</em> = <code>&quot;GMT&quot;</code>&#160;</td>
+          <td class="paramtype">str &#160;</td>
+          <td class="paramname"><em>timezone</em> = <code>&quot;GMT&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &#160;</td>
+          <td class="paramname"><em>update_rate</em> = <code>30.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -146,14 +163,37 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timezone</td><td>Timezone </td></tr>
+    <tr><td class="paramname">timezone</td><td>Timezone string, list of possible timezones. </td></tr>
+    <tr><td class="paramname">update_rate</td><td>Rate at which the time is updated, in Hz. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List</a> </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a70fc6d84725e899fb4484a15c9d37d70" name="a70fc6d84725e899fb4484a15c9d37d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70fc6d84725e899fb4484a15c9d37d70">&#9670;&nbsp;</a></span>__str__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str client.src.localtime.Localtime.__str__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return a string format of the time. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current time in ISO8601 format. </dd></dl>
+
+</div>
+</div>
 <a id="a09bebb8d18fe993c3564ed2380d0b4f1" name="a09bebb8d18fe993c3564ed2380d0b4f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09bebb8d18fe993c3564ed2380d0b4f1">&#9670;&nbsp;</a></span>day()</h2>
 
@@ -170,8 +210,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current day of the month from 0 to 31. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current day of the month. </dd></dl>
+<p>Return the current day of the month. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current day of the month, from 0 to 31. </dd></dl>
 
 </div>
 </div>
@@ -191,8 +231,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current hour in 24h format. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current hour. </dd></dl>
+<p>Return the current hour. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current hour, in 24h format. </dd></dl>
 
 </div>
 </div>
@@ -212,8 +252,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current millisecond from 0 to 999. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current millisecond. </dd></dl>
+<p>Return the current millisecond. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current millisecond, from 0 to 999. </dd></dl>
 
 </div>
 </div>
@@ -233,8 +273,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current minute from 0 to 59. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current minute. </dd></dl>
+<p>Return the current minute. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current minute, from 0 to 59. </dd></dl>
 
 </div>
 </div>
@@ -254,8 +294,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current month from 0 to 11. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current month. </dd></dl>
+<p>Return the current month. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current month, from 0 to 11. </dd></dl>
 
 </div>
 </div>
@@ -275,8 +315,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current second from 0 to 59. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current second. </dd></dl>
+<p>Return the current second. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current second, from 0 to 59. </dd></dl>
 
 </div>
 </div>
@@ -306,7 +346,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Update the current time. </p>
+<p>Set the instance time. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stamp</td><td>POSIX timestamp. </td></tr>
@@ -332,8 +372,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
       </table>
 </div><div class="memdoc">
 
-<p>Return the current day of the week from 0 to 6, 0 representing Monday. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current day of the week. </dd></dl>
+<p>Return the current day of the week. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current day of the week, from 0 to 6, 0 representing Monday. </dd></dl>
 
 </div>
 </div>
@@ -354,7 +394,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td>
 </div><div class="memdoc">
 
 <p>Return the current year. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current year. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Current year, with 4 digits. </dd></dl>
 
 </div>
 </div>
