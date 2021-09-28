@@ -8,13 +8,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Start Docker componse
-        run: docker-compose run iot-rgb-led-matrix bash
-      - name: Test and lint
+      - name: Build, test and lint
         env:
           PYTHONPATH: ${{ github.workspace }}/client
           OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
         run: |
+          docker-compose run iot-rgb-led-matrix bash
           python3 -m pip install --upgrade pip
           pip install pytest pytest-cov pytest-pylint
           cd client
