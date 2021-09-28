@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/featuire/ci, commit: 4ac121e648af14194527d62f08ecb060f4b5d8a0</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/featuire/ci, commit: a6cc907734cc7c86e8d9188c949206ffb9f16934</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -191,7 +191,7 @@ Run</h3>
 <p >This command will run the <code>AnalogClock</code> animation by default, other parameters are available (check the <code>Dockerfile</code>). </p><pre class="fragment">docker run -it --rm -e HOST_IP=192.168.3.15 iot_rgb_led_matrix
 </pre> <h3><a class="anchor" id="autotoc_md15"></a>
 Docker compose</h3>
-<p >Docker compose allows to configure and run the script, in the Docker container, in the background (<code>-d</code> flag for the daemon) as well as make sure the Docker instance restarts upon reboot. See the <code>docker-compose.yml</code> file for details. </p><pre class="fragment">docker-compose up -d
+<p >Docker compose allows to configure and run the script, in the Docker container, in the background (<code>-d</code> flag for the detach) as well as make sure the Docker instance restarts upon reboot. See the <code>docker-compose.yml</code> file for details. </p><pre class="fragment">docker-compose up -d
 </pre><p> To stop the docker container call the following </p><pre class="fragment">docker-compose down
 </pre> <h1><a class="anchor" id="autotoc_md16"></a>
 Notes</h1>
