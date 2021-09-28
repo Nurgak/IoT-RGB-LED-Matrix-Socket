@@ -6,8 +6,8 @@ jobs:
   document:
     runs-on: ubuntu-latest
     env:
-      BRANCH: ${{ env.GITHUB_REF }}
-      COMMIT: ${{ env.GITHUB_SHA }}
+      BRANCH: ${{ github.ref }}
+      COMMIT: ${{ github.sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
