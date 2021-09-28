@@ -8,7 +8,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Build, test and lint
+      - name: Build
+        run: docker-compose build
+      - name: Test and lint
         env:
           PYTHONPATH: ${{ github.workspace }}/client
           OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
