@@ -22,6 +22,7 @@ class Weather(Thread):
     @sa https://openweathermap.org
     @sa https://openweathermap.org/api/air-pollution
     """
+
     __weather = []
     __air_pollution = []
 
@@ -114,7 +115,9 @@ class Weather(Thread):
         """! Return current relative humidity for the configured location.
         @return Relative humidity in percent, from 0 to 100, or `np.nan` if unknown.
         """
-        return self.__weather["main"]["humidity"] if "main" in self.__weather else np.nan
+        return (
+            self.__weather["main"]["humidity"] if "main" in self.__weather else np.nan
+        )
 
     @property
     def aqi(self) -> int:

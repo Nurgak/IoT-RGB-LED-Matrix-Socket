@@ -9,7 +9,9 @@ from animation.word_clock import English, Japanese
 
 def test_analog_clock():
     """! Test analog clock animation."""
-    subprocess.run(["./main.py", "analog_clock.AnalogClock", "-vvv", "save", "1"], check=True)
+    subprocess.run(
+        ["./main.py", "analog_clock.AnalogClock", "-vvv", "save", "1"], check=True
+    )
 
 
 def test_openweathermap_invalid():

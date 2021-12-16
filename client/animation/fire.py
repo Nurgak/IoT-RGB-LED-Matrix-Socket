@@ -10,6 +10,7 @@ class Fire(Animate):
     @image html fire.Fire.gif width=256px
     Animation showing a randomly generated live fire.
     """
+
     __FIRE_HEIGHT_FACTOR = 1.2
 
     def __init__(self, shape: tuple, *args: list, **kwargs: dict):
@@ -19,11 +20,10 @@ class Fire(Animate):
     def draw(self):
         # Bottom fire starter line is randomly generated.
         self.__fire[-1, :] = np.random.randint(
-            0xff >> 1, 0xff, size=self.__fire.shape[1]
+            0xFF >> 1, 0xFF, size=self.__fire.shape[1]
         )
         decay = np.random.randint(
-            self.__fire.shape[0] / self.__FIRE_HEIGHT_FACTOR,
-            size=self.__fire.shape
+            self.__fire.shape[0] / self.__FIRE_HEIGHT_FACTOR, size=self.__fire.shape
         )
         self.__fire[:-1] = np.clip(self.__fire[1:] - decay[1:], 0, 0xFF)
         self._screen = cv.applyColorMap(self.__fire, cv.COLORMAP_HOT)
