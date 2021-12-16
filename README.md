@@ -1,6 +1,6 @@
 # Internet-of-Things RGB LED Matrix via Sockets
 
-[![Unit tests](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml) [![Documentation: Doxygen](https://img.shields.io/badge/Documentation-Doxygen-blue.svg))](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/Code%20style-Black-black.svg)](https://github.com/psf/black)
+[![Unit tests](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml) [![Documentation: Doxygen](https://img.shields.io/badge/Documentation-Doxygen-blue.svg)](https://nurgak.github.io/IoT-RGB-LED-Matrix-Socket/) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/Code%20style-Black-black.svg)](https://github.com/psf/black)
 
 ![Internet-of-Things RGB LED Matrix](./iot_rgb_led_matrix.jpg)
 
@@ -10,7 +10,7 @@ The ESP32 acts as the socket server, anything that is recieved from a client is 
 
 Because of the way the data is handled in the Adafruit LED Matrix library, only the 3 most significant bits (MSB) are used for the display, allowing _only_ 8 shades per color channel, or 8^3=512 colors. Therefore, when creating animations, one must keep in mind that only the 3 MSB are actually relevant.
 
-All code, animations and options are [extensively documented using Doxygen]().
+All code, animations and options are [extensively documented using Doxygen](https://nurgak.github.io/IoT-RGB-LED-Matrix-Socket/).
 
 ## Example animations
 
