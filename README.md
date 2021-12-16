@@ -1,6 +1,6 @@
 # Internet-of-Things RGB LED Matrix via Sockets
 
-[![Unit tests](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml) [![document](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Unit tests](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml) [![Documentation: Doxygen](https://img.shields.io/badge/Documentation-Doxygen-blue.svg))](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/Code%20style-Black-black.svg)](https://github.com/psf/black)
 
 ![Internet-of-Things RGB LED Matrix](./iot_rgb_led_matrix.jpg)
 
