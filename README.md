@@ -1,7 +1,6 @@
 # Internet-of-Things RGB LED Matrix via Sockets
 
-[![CI pipeline status](https://github.com/Nurgak/iot.../workflows/test/badge.svg)](https://github.com/Nurgak/Iot/actions)
-[![Documentation](https://img.shields.io/badge/docs-Doxygen-blue)](#) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Unit tests](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml) [![document](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml/badge.svg)](https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ![Internet-of-Things RGB LED Matrix](./iot_rgb_led_matrix.jpg)
 
@@ -28,7 +27,6 @@ For example
 | Animation | Preview | Command |
 | --- | --- | --- |
 | Analog clock animation | ![Analog clock animation](client/media/analog_clock.AnalogClock.gif) | `analog_clock.AnalogClock -t Asia/Tokyo`
-| Camera output animation | ![Camera output animation](client/media/camera.Camera.gif) | `camera.Camera`
 | Conway's Game of Life in color | ![Conway's Game of Life in color](client/media/game_of_life.GameOfLifeColor.gif) | `game_of_life.GameOfLifeColor`
 | Conway's Game of Life fast | ![Conway's Game of Life fast](client/media/game_of_life.GameOfLifeFast.gif) | `game_of_life.GameOfLifeFast`
 | Digital data display | ![Digital data display](client/media/digital_data.DigitalData.png) | `digital_data.DigitalData -t Asia/Tokyo -c Tokyo -k $OWM_API_KEY`
