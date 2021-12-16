@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['save_0',['Save',['../classclient_1_1src_1_1save_1_1Save.html',1,'client::src::save']]]
+  ['text_0',['Text',['../classclient_1_1src_1_1text_1_1Text.html',1,'client::src::text']]]
 ];

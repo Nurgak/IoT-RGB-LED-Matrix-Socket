@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: 0aae5c051803f28ef6b107cb1e6f366e9b2af122</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: 6c2bf0fbb3da98ae32effe496a914b00de260f56</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -66,7 +66,7 @@ $(function() {
   <div class="headertitle"><div class="title">Internet-of-Things RGB LED Matrix via Sockets </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/Nurgak/Iot/actions"><img src="https://github.com/Nurgak/iot.../workflows/test/badge.svg" alt="CI pipeline status" style="pointer-events: none;" class="inline"/></a> <a href="#"><img src="https://img.shields.io/badge/docs-Doxygen-blue" alt="Documentation" class="inline"/></a> [<img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE) <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml"><img src="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg" alt="Unit tests" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml"><img src="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml/badge.svg" alt="document" style="pointer-events: none;" class="inline"/></a> [<img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE) <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" style="pointer-events: none;" class="inline"/></a></p>
 <p ><img src="./iot_rgb_led_matrix.jpg" alt="Internet-of-Things RGB LED Matrix" class="inline"/></p>
 <p >This project in the continuation of the <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix">IoT RGB LED Matrix</a>. Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate, allowing to display remotely generated animations. The <a href="https://github.com/adafruit/RGB-matrix-Panel">Adafruit LED Matrix library</a> is used to take advantage of its incredibly optimized display update routine.</p>
 <p >The ESP32 acts as the socket server, anything that is recieved from a client is directly read to the screen buffer. Therefore, the data packing must be done on the client side. Having the ESP32 as the server and the Python side the client allows to send data only when needed - when screen needs to be updated with new data.</p>
@@ -83,28 +83,26 @@ Example animations</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Analog clock animation   </td><td class="markdownTableBodyNone"><img src="analog_clock.AnalogClock.gif" alt="" class="inline" title="Analog clock animation"/>  </td><td class="markdownTableBodyNone"><code>analog_clock.AnalogClock -t Asia/Tokyo</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Camera output animation   </td><td class="markdownTableBodyNone"><img src="client/media/camera.Camera.gif" alt="Camera output animation" class="inline"/>   </td><td class="markdownTableBodyNone"><code>camera.Camera</code>    </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Conway's Game of Life in color   </td><td class="markdownTableBodyNone"><img src="game_of_life.GameOfLifeColor.gif" alt="" class="inline" title="Conway's Game of Life in color"/>  </td><td class="markdownTableBodyNone"><code>game_of_life.GameOfLifeColor</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Conway's Game of Life fast   </td><td class="markdownTableBodyNone"><img src="game_of_life.GameOfLifeFast.gif" alt="" class="inline" title="Conway's Game of Life fast"/>  </td><td class="markdownTableBodyNone"><code>game_of_life.GameOfLifeFast</code>    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Digital data display   </td><td class="markdownTableBodyNone"><img src="digital_data.DigitalData.png" alt="" class="inline" title="Digital data display"/>  </td><td class="markdownTableBodyNone"><code>digital_data.DigitalData -t Asia/Tokyo -c Tokyo -k $OWM_API_KEY</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Generated fire animation   </td><td class="markdownTableBodyNone"><img src="fire.Fire.gif" alt="" class="inline" title="Generated fire animation"/>  </td><td class="markdownTableBodyNone"><code>fire.Fire</code>    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">English word clock   </td><td class="markdownTableBodyNone"><img src="word_clock.English.png" alt="" class="inline" title="English word clock"/>  </td><td class="markdownTableBodyNone"><code>word_clock.English -t Asia/Tokyo</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Japanese word clock   </td><td class="markdownTableBodyNone"><img src="word_clock.Japanese.png" alt="" class="inline" title="Japanese word clock"/>  </td><td class="markdownTableBodyNone"><code>word_clock.Japanese -t Asia/Tokyo</code>    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Growing tree maze generator   </td><td class="markdownTableBodyNone"><img src="rgb.GrowingTree.gif" alt="" class="inline" title="Growing tree maze generator"/>  </td><td class="markdownTableBodyNone"><code>rgb.GrowingTree</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Hilbert curve animation   </td><td class="markdownTableBodyNone"><img src="rgb.HilbertCurve.gif" alt="" class="inline" title="Hilbert curve animation"/>  </td><td class="markdownTableBodyNone"><code>rgb.HilbertCurve</code>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Mandelbrot fractal animation   </td><td class="markdownTableBodyNone"><img src="rgb.Mandelbrot.gif" alt="" class="inline" title="Mandelbrot fractal animation"/>  </td><td class="markdownTableBodyNone"><code>rgb.Mandelbrot</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Static QR code   </td><td class="markdownTableBodyNone"><img src="qr_code.QRCode.png" alt="" class="inline" title="Static QR code"/>  </td><td class="markdownTableBodyNone"><code>qr_code.QRCode --text "test"</code>    </td></tr>
+<td class="markdownTableBodyNone">Mandelbrot fractal animation   </td><td class="markdownTableBodyNone"><img src="rgb.Mandelbrot.gif" alt="" class="inline" title="Mandelbrot fractal animation"/>  </td><td class="markdownTableBodyNone"><code>rgb.Mandelbrot</code>    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Static QR code   </td><td class="markdownTableBodyNone"><img src="qr_code.QRCode.png" alt="" class="inline" title="Static QR code"/>  </td><td class="markdownTableBodyNone"><code>qr_code.QRCode --text "test"</code>    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Generated water drop animation   </td><td class="markdownTableBodyNone"><img src="water.Water.gif" alt="" class="inline" title="Generated water drop animation"/>  </td><td class="markdownTableBodyNone"><code>water.Water</code>   </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md2"></a>

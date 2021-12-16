@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mandelbrot_0',['Mandelbrot',['../classclient_1_1animation_1_1rgb_1_1Mandelbrot.html',1,'client::animation::rgb']]]
+  ['qrcode_0',['QRCode',['../classclient_1_1animation_1_1qr__code_1_1QRCode.html',1,'client::animation::qr_code']]]
 ];

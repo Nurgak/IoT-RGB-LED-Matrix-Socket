@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['japanese_0',['Japanese',['../classclient_1_1animation_1_1word__clock_1_1Japanese.html',1,'client::animation::word_clock']]]
+  ['localtime_0',['Localtime',['../classclient_1_1src_1_1localtime_1_1Localtime.html',1,'client::src::localtime']]]
 ];
