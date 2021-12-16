@@ -1,4 +1,5 @@
 pendulum
+numpy
 requests
 qrcode
 numpy-hilbert-curve
