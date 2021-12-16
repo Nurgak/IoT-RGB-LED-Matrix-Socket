@@ -3,4 +3,4 @@
 __pycache__
 firmware/config.h
 .coverage
-docs
+docs/

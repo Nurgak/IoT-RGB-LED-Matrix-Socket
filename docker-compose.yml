@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  iot-rgb-led-matrix:
+    image: iot_rgb_led_matrix
+    build: .
+    restart: always
+    environment:
+      - HOST_IP=192.168.3.15
+      - PORT=7777
+      - ANIMATION=home.Home
+      - TZ=Asia/Tokyo
+      - KEY=f31dbac8ff49739db102759af1e8099b
+      - CITY=Tokyo
+      - TEXT=test
+    volumes:
+      - .:/root/ws

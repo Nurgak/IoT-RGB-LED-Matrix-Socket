@@ -1,41 +1,53 @@
 # Internet-of-Things RGB LED Matrix via Sockets
 
-![Internet-of-Things RGB LED Matrix](iot_rgb_led_matrix.jpg)
+[![CI pipeline status](https://github.com/Nurgak/iot.../workflows/test/badge.svg)](https://github.com/Nurgak/Iot/actions)
+[![Documentation](https://img.shields.io/badge/docs-Doxygen-blue)](#) [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-This project in the continuation of the [IoT RGB LED Matrix](https://github.com/Nurgak/IoT-RGB-LED-Matrix). Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate. The [Adafruit LED Matrix library](https://github.com/adafruit/RGB-matrix-Panel) is used to take advantage of its incredibly optimized display update routine.
+![Internet-of-Things RGB LED Matrix](./iot_rgb_led_matrix.jpg)
+
+This project in the continuation of the [IoT RGB LED Matrix](https://github.com/Nurgak/IoT-RGB-LED-Matrix). Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate, allowing to display remotely generated animations. The [Adafruit LED Matrix library](https://github.com/adafruit/RGB-matrix-Panel) is used to take advantage of its incredibly optimized display update routine.
 
 The ESP32 acts as the socket server, anything that is recieved from a client is directly read to the screen buffer. Therefore, the data packing must be done on the client side. Having the ESP32 as the server and the Python side the client allows to send data only when needed - when screen needs to be updated with new data.
 
-Because of the way the data is compressed, only the 3 most significant bits are used for the display, allowing _only 8_ shades per color channel, or 8^3=512 colors.
+Because of the way the data is handled in the Adafruit LED Matrix library, only the 3 most significant bits (MSB) are used for the display, allowing _only_ 8 shades per color channel, or 8^3=512 colors. Therefore, when creating animations, one must keep in mind that only the 3 MSB are actually relevant.
 
-Code has been [extensively documented using Doxygen]().
+All code, animations and options are [extensively documented using Doxygen]().
 
 ## Example animations
 
-Having the client written in Python makes it straight forward to create animations using standard image processing tools, such as OpenCV, and link them to various APIs and display them quickly.
+Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.
 
-A list of examples have been prepared. To view any of the examples execute them using the example command in the list. The environment variable `$HOST_IP` represents the ESP32 IP address.
+To display an animation on the matrix call the following command
 
-| Animation | Description | Example | Command |
-| --- | --- | --- | --- |
-| Analog clock | A face emulating an analog clock with hour, minute and second hands. Optionally, the [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) can be set, defaulting to GMT when not defined. | ![Analog clock](client/media/AnalogClock.png) | `./main.py AnalogClock --timezone Asia/Tokyo display $HOST_IP`
-| Conway's Game of Life in Color | [Cellular automaton](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) iterative animation based on its state and some simple rules. A new pixel adopts the average color of its adjacent parents. | ![Conway's Game of Life](client/media/GameOfLifeColor.gif) | `./main.py GameOfLifeColor display $HOST_IP` |
-| Conway's Game of Life fast | Same as the previous animation, but only in one color and optimized for speed. | ![Conway's Game of Life](client/media/GameOfLifeFast.gif) | `./main.py GameOfLifeFast display $HOST_IP` |
-| Digital data | Display various data in digital format, using [OpenWeatherMap API](https://openweathermap.org/api) and the *Small 5x3* font. The extra arguments are the [OWM API key](https://openweathermap.org/api), the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) and the [city](https://openweathermap.org/current#name) information for the temperature, humidity and air pollution data. | ![Digital data](client/media/DigitalData.png) | `./main.py DigitalData --key $OWM_API_KEY -t Asia/Tokyo -c Tokyo display $HOST_IP` |
-| Fire | A simplistic fire animation. | ![Fire](client/media/Fire.gif) | `./main.py Fire display $HOST_IP` |
-| English word clock | Time, but written in English. Using the *Small 5x3* font. | ![English word clock](client/media/WordClockEnglish.png) | `./main.py WordClockEnglish -t Asia/Tokyo display $HOST_IP` |
-| Japanese word clock | Time, but written in Japanese Kanji using the *Misaki Font*. | ![Japanese word clock](client/media/WordClockJapanese.png) | `./main.py WordClockJapanese -t Asia/Tokyo display $HOST_IP` |
-| Maze generator | A maze generator based on the [Growing Tree algorithm](https://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-elgorithm), implemented as a recursive function. | ![Maze generator](client/media/MazeGrowingTree.gif) | `./main.py MazeGrowingTree display $HOST_IP` |
-| QR code | Text converted to QR code. | ![QR code](client/media/QRCode.png) | `./main.py QRCode --text "test" display $HOST_IP` |
-| Water | A water drop animation. | ![Water](client/media/Water.gif) | `./main.py Water display $HOST_IP` |
+    ./main.py $ANIMATION [OPTIONS] display $HOST_IP
+
+For example
+
+    ./main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
+
+| Animation | Preview | Command |
+| --- | --- | --- |
+| Analog clock animation | ![Analog clock animation](client/media/analog_clock.AnalogClock.gif) | `analog_clock.AnalogClock -t Asia/Tokyo`
+| Camera output animation | ![Camera output animation](client/media/camera.Camera.gif) | `camera.Camera`
+| Conway's Game of Life in color | ![Conway's Game of Life in color](client/media/game_of_life.GameOfLifeColor.gif) | `game_of_life.GameOfLifeColor`
+| Conway's Game of Life fast | ![Conway's Game of Life fast](client/media/game_of_life.GameOfLifeFast.gif) | `game_of_life.GameOfLifeFast`
+| Digital data display | ![Digital data display](client/media/digital_data.DigitalData.png) | `digital_data.DigitalData -t Asia/Tokyo -c Tokyo -k $OWM_API_KEY`
+| Generated fire animation | ![Generated fire animation](client/media/fire.Fire.gif) | `fire.Fire`
+| English word clock | ![English word clock](client/media/word_clock.English.png) | `word_clock.English -t Asia/Tokyo`
+| Japanese word clock | ![Japanese word clock](client/media/word_clock.Japanese.png) | `word_clock.Japanese -t Asia/Tokyo`
+| Growing tree maze generator | ![Growing tree maze generator](client/media/rgb.GrowingTree.gif) | `rgb.GrowingTree`
+| Hilbert curve animation | ![Hilbert curve animation](client/media/rgb.HilbertCurve.gif) | `rgb.HilbertCurve`
+| Mandelbrot fractal animation | ![Mandelbrot fractal animation](client/media/rgb.Mandelbrot.gif) | `rgb.Mandelbrot`
+| Static QR code | ![Static QR code](client/media/qr_code.QRCode.png) | `qr_code.QRCode --text "test"`
+| Generated water drop animation | ![Generated water drop animation](client/media/water.Water.gif) | `water.Water`
 
 ## Hardware
 
-An ESP32 breakout board was used in this project with a [custom adapter PCB](https://hackaday.io/project/28945-iot-rgb-led-matrix-controller-esp32). Although the adapter is not necessary as the ESP32 breakout can be connected to the RGB LED matrix with some cables just as well.
+An ESP32 breakout board was used in this project with a [custom adapter PCB](https://hackaday.io/project/28945-iot-rgb-led-matrix-controller-esp32). Although the adapter is not strictly necessary as the ESP32 breakout can be connected to the RGB LED matrix with some cables just as well.
 
 ### Pinout
 
-The pin assignment is not strict and every pin can be reconfigured to another one, but it is recommended to follow the pinout below so it would work with the unmodified code.
+The pin assignment is not strict and every pin can be reconfigured to another one, but it is recommended to follow the pinout below so it would work with the unmodified code. The only requirement is to have 13 GPIO available.
 
 <table>
     <tr>
@@ -98,7 +110,7 @@ The pin assignment is not strict and every pin can be reconfigured to another on
     </tr>
 </table>
 
-## Installation
+## Software
 
 ### Dependencies
 
@@ -114,7 +126,7 @@ The ESP32 needs to have its firmware uploaded before it can recieve the data str
 
 The WiFi credentials need be provided in the `config.h` file.
 
-![IoT RGB LED Matrix showing its IP address upon successful connection to the local network.](ip.jpg)
+![IoT RGB LED Matrix showing its IP address upon successful connection to the local network.](./ip.jpg)
 
 ### Fonts
 
@@ -127,9 +139,9 @@ The fonts used in this project are property of their respective creators. As the
 
 ### Main
 
-The `main.py` file imports all the example animations and allows to configure and launch them. This is the beginning of all execution.
+The `main.py` file, in the `client` directory, imports all the example animations and allows to configure and launch them. This is the beginning of all execution.
 
-The `-h` flag will show how to use it. For example
+The `-h` flag displays how to use it.
 
     ./main.py -h
 
@@ -139,40 +151,48 @@ Some animations have extra arguments, such as the time zone for the clocks. See 
 
 To display the animation on an RGB LED Matrix add the `display` suffix with the IP of the ESP32.
 
-    ./main.py <Animation name> display 192.168.3.15
+    ./main.py $ANIMATION display $HOST_IP
 
 #### Saving
 
-To save an animation to a file add the `save` suffix with the number of frames to save. One frame will result in a static `png`, more will be saved as a `gif`. The file name will be `<Animation name>.png/gif`.
+To save an animation to a file add the `save` suffix with the number of frames to save. One frame will result in a static `png`, more will be saved as a `gif`. The image file name will be `$ANIMATION.png/gif`.
 
-    ./main.py <Animation name> save 1
+    ./main.py $ANIMATION save $FRAMES
+
+The saving script acts as a virtual display, decoding the encoded frame as the actual display would. Therefore, as with the real display, only the 3 MSB of the color are relevant.
 
 ### Docker
 
 An effective way to run the client side is to use Docker. This is a prepared and tested environment where all the dependencies are already installed.
 
+The Docker image was specifically prepared to be (also) compatible with `arm32v7` architecture, so it would run on a SOC such as a Raspberry Pi.
+
 #### Build
 
-    docker build -t iot_rgb_matrix_panel_client .
+    docker build -t iot_rgb_led_matrix .
 
 #### Run
 
-    docker run -it --rm -v "$(pwd):/root/ws" \
-        -p 7777:7777 \
-        -e HOST_IP=192.168.3.15 \
-        -e PORT=7777 \
-        -e ANIMATION=AnalogClock \
-        -e WIDTH=32 \
-        -e HEIGHT=32 \
-        iot_rgb_matrix_panel_client
+This command will run the `AnalogClock` animation by default, other parameters are available (check the `Dockerfile`).
+
+    docker run -it --rm -e HOST_IP=192.168.3.15 iot_rgb_led_matrix
+
+#### Docker compose
+
+Docker compose allows to configure and run the script, in the Docker container, in the background (`-d` flag for the detach) as well as make sure the Docker instance restarts upon reboot. See the `docker-compose.yml` file for details.
+
+    docker-compose up -d
+
+To stop the docker container call the following
+
+    docker-compose down
 
 ## Notes
 
 * This project has only been tested with a 32x32 RGB LED matrix panel.
 * The recommended panel is an official [Adafruit one](https://www.adafruit.com/product/607). Cheaper can be had, but experience has shown major luminosity degradation and burn-in issues with those.
 
+
 ## License
 
 This project is published under the [MIT license](LICENSE).
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

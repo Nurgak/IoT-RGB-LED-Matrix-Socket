@@ -9,10 +9,13 @@ from PIL import Image
 
 class Save(Thread):
     """! Animation saving server class."""
+
     __frame_array = []
     __TIMEOUT = 3
 
-    def __init__(self, name: str, frames: int=1, duration: int=40, port: int=7777):
+    def __init__(
+        self, name: str, frames: int = 1, duration: int = 40, port: int = 7777
+    ):
         """! Constructor.
         @param name File name to save as.
         @param frames Number of frames to save.
@@ -41,9 +44,16 @@ class Save(Thread):
                     screen = self.unpack(data)
                     frame = Image.fromarray(screen)
                     self.__frame_array.append(frame)
-                    conn.send(b'\n' if len(self.__frame_array) < self.__frames else b'0x4')
-                    logging.debug("[%s] Progress: %.2f%%", self.__class__.__name__,
-                        100 * len(self.__frame_array) / self.__frames)
+                    # Acknowledge or terminate connection.
+                    conn.send(
+                        b"\n" if len(self.__frame_array) < self.__frames else b"0x4"
+                    )
+
+                    logging.debug(
+                        "[%s] Progress: %.2f%%",
+                        self.__class__.__name__,
+                        100 * len(self.__frame_array) / self.__frames,
+                    )
         logging.debug("[%s] Saving image...", self.__class__.__name__)
         filename = self.save()
         logging.info("[%s] Saved image under %s", self.__class__.__name__, filename)
@@ -61,12 +71,24 @@ class Save(Thread):
         bit0 = screen[2::3]
 
         screen = np.zeros((32, 32, 3), dtype=np.uint8)
-        screen[:16, :, 0] = ((bit2 & 0x4) << 5) | ((bit1 & 0x4) << 4) | ((bit0 & 0x4) << 3)
-        screen[:16, :, 1] = ((bit2 & 0x8) << 4) | ((bit1 & 0x8) << 3) | ((bit0 & 0x8) << 2)
-        screen[:16, :, 2] = ((bit2 & 0x10) << 3) | ((bit1 & 0x10) << 2) | ((bit0 & 0x10) << 1)
-        screen[16:, :, 0] = ((bit2 & 0x20) << 2) | ((bit1 & 0x20) << 1) | ((bit0 & 0x20) << 0)
-        screen[16:, :, 1] = ((bit2 & 0x40) << 1) | ((bit1 & 0x40) << 0) | ((bit0 & 0x40) >> 1)
-        screen[16:, :, 2] = ((bit2 & 0x80) << 0) | ((bit1 & 0x80) >> 1) | ((bit0 & 0x80) >> 2)
+        screen[:16, :, 0] = (
+            ((bit0 & 0x4) << 5) | ((bit1 & 0x4) << 4) | ((bit2 & 0x4) << 3)
+        )
+        screen[:16, :, 1] = (
+            ((bit0 & 0x8) << 4) | ((bit1 & 0x8) << 3) | ((bit2 & 0x8) << 2)
+        )
+        screen[:16, :, 2] = (
+            ((bit0 & 0x10) << 3) | ((bit1 & 0x10) << 2) | ((bit2 & 0x10) << 1)
+        )
+        screen[16:, :, 0] = (
+            ((bit0 & 0x20) << 2) | ((bit1 & 0x20) << 1) | ((bit2 & 0x20) << 0)
+        )
+        screen[16:, :, 1] = (
+            ((bit0 & 0x40) << 1) | ((bit1 & 0x40) << 0) | ((bit2 & 0x40) >> 1)
+        )
+        screen[16:, :, 2] = (
+            ((bit0 & 0x80) << 0) | ((bit1 & 0x80) >> 1) | ((bit2 & 0x80) >> 2)
+        )
         return screen
 
     def save(self) -> str:
@@ -79,6 +101,6 @@ class Save(Thread):
             append_images=self.__frame_array[1:],
             optimize=False,
             duration=self.__duration,
-            loop=0
+            loop=0,
         )
         return filename

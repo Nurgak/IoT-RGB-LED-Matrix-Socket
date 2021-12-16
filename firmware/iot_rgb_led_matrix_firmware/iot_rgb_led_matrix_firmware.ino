@@ -47,7 +47,7 @@ void listen(void *pvParameter)
       {
         while(client.available())
         {
-          client.readBytes(buffer_ptr, BUFFER_SIZE);
+          client.readBytesUntil('\n', buffer_ptr, BUFFER_SIZE);
           client.write('\n');
           vTaskDelay(1);
         }

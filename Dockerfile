@@ -1,16 +1,27 @@
-FROM python:3
-ENV PORT=7777 \
+FROM debian:stable-slim
+SHELL ["/bin/bash", "-c"]
+WORKDIR /root/ws
+ENV ANIMATION=AnalogClock \
     WIDTH=32 \
     HEIGHT=32 \
+    PORT=7777 \
+    TZ=GMT \
+    KEY="" \
+    CITY="" \
+    TEXT="" \
     PYTHONPATH=/root/ws/client
 
-WORKDIR /root/ws
+EXPOSE ${PORT}
 COPY . .
+# hadolint ignore=DL3008
 RUN apt-get update && \
-    apt-get install -y ffmpeg libsm6 libxext6 && \
-    pip install -r requirements.txt
+    apt-get install --no-install-recommends -y \
+    python3-opencv \
+    python3-numpy \
+    python3-pil \
+    python3-pip && \
+    rm -rf /var/lib/apt/lists/* && \
+    pip install --no-cache-dir -r requirements.txt
 
-CMD python client/main.py ${ANIMATION} \
-    --width ${WIDTH} \
-    --height ${HEIGHT} \
-    display ${HOST_IP} --port ${PORT}
+CMD cd client && ./main.py "${ANIMATION}" --width "${WIDTH}" --height "${HEIGHT}"  --key "${KEY}" \
+    --city "${CITY}" --timezone "${TZ}" --text "${TEXT}" display "${HOST_IP}" --port "${PORT}"

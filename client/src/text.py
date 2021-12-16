@@ -7,6 +7,7 @@ from PIL import ImageFont, ImageDraw, Image
 # pylint: disable=too-few-public-methods
 class Text:
     """! Draw text on a referenced screen."""
+
     ## Normal wrapping, using whitespaces and line breaks.
     WRAP_NORMAL = 0
     ## Force wrapping, wrapping by character.
@@ -22,8 +23,14 @@ class Text:
         self.__font = ImageFont.truetype(fontpath, fontsize)
 
     # pylint: disable=too-many-arguments
-    def write(self, screen: np.ndarray, text: str, color: tuple=(0xff, 0xff, 0xff),
-        offset: tuple=(0, 0), wrap: int=WRAP_NORMAL):
+    def write(
+        self,
+        screen: np.ndarray,
+        text: str,
+        color: tuple = (0xFF, 0xFF, 0xFF),
+        offset: tuple = (0, 0),
+        wrap: int = WRAP_NORMAL,
+    ):
         """! Draw text on a provided screen.
         @param screen The screen reference.
         @param text Text to write on the screen.
@@ -34,8 +41,11 @@ class Text:
         screen_pil = Image.fromarray(screen)
         image_draw = ImageDraw.Draw(screen_pil)
 
-        assert wrap in [Text.WRAP_NORMAL, Text.WRAP_FORCE, Text.WRAP_NONE], \
-            f"Unrecogised wrap method: {wrap}."
+        assert wrap in [
+            Text.WRAP_NORMAL,
+            Text.WRAP_FORCE,
+            Text.WRAP_NONE,
+        ], f"Unrecogised wrap method: {wrap}."
 
         text_multiline = []
         line = ""
@@ -68,7 +78,9 @@ class Text:
 
         offset_y = 0
         for line in text_multiline:
-            image_draw.text((offset[0], offset[1]+offset_y), line, font=self.__font, fill=color)
+            image_draw.text(
+                (offset[0], offset[1] + offset_y), line, font=self.__font, fill=color
+            )
             offset_y += image_draw.textsize(line, font=self.__font)[1]
 
         screen[:] = np.array(screen_pil)

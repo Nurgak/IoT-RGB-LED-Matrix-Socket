@@ -1,10 +1,12 @@
-PROJECT_NAME           = "IoT RGB LED Matrix Socket"
-PROJECT_BRIEF          = "Animation generation scripts written in Python"
+PROJECT_NAME           = "Internet-of-Things RGB LED Matrix via Sockets"
+PROJECT_NUMBER         = "Branch: $(BRANCH), commit: $(COMMIT)"
+PROJECT_BRIEF          = "Animation generation scripts"
 OUTPUT_DIRECTORY       = ./docs
 INPUT                  =
 FILE_PATTERNS          = *.md *.py
 EXCLUDE_PATTERNS       = main.py
 RECURSIVE              = YES
-IMAGE_PATH             = ./
+IMAGE_PATH             = client/media
 USE_MDFILE_AS_MAINPAGE = README.md
 GENERATE_LATEX         = NO
+QUIET                  = YES
