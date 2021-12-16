@@ -1,6 +1,6 @@
 pendulum
 numpy
-pil
+pillow
 opencv
 requests
 qrcode
