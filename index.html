@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: 2ad3d3c5291c79094a4f4b9fb08c4e7cfe2c45c7</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: e08b7e67f6bd0c498eccb655a0c12dd59d7d8c54</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -66,12 +66,12 @@ $(function() {
   <div class="headertitle"><div class="title">Internet-of-Things RGB LED Matrix via Sockets </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml"><img src="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg" alt="Unit tests" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/document.yml"><img src="https://img.shields.io/badge/Documentation-Doxygen-blue.svg" alt="Documentation: Doxygen" style="pointer-events: none;" class="inline"/>)</a> [<img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE) <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/Code%20style-Black-black.svg" alt="Code style: black" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml"><img src="https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket/actions/workflows/test.yml/badge.svg" alt="Unit tests" style="pointer-events: none;" class="inline"/></a> <a href="https://nurgak.github.io/IoT-RGB-LED-Matrix-Socket/"><img src="https://img.shields.io/badge/Documentation-Doxygen-blue.svg" alt="Documentation: Doxygen" style="pointer-events: none;" class="inline"/></a> [<img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT" style="pointer-events: none;" class="inline"/>](LICENSE) <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/Code%20style-Black-black.svg" alt="Code style: black" style="pointer-events: none;" class="inline"/></a></p>
 <p ><img src="./iot_rgb_led_matrix.jpg" alt="Internet-of-Things RGB LED Matrix" class="inline"/></p>
 <p >This project in the continuation of the <a href="https://github.com/Nurgak/IoT-RGB-LED-Matrix">IoT RGB LED Matrix</a>. Socket communication is used, instead of Node-RED/MQTT, for a much faster update rate, allowing to display remotely generated animations. The <a href="https://github.com/adafruit/RGB-matrix-Panel">Adafruit LED Matrix library</a> is used to take advantage of its incredibly optimized display update routine.</p>
 <p >The ESP32 acts as the socket server, anything that is recieved from a client is directly read to the screen buffer. Therefore, the data packing must be done on the client side. Having the ESP32 as the server and the Python side the client allows to send data only when needed - when screen needs to be updated with new data.</p>
 <p >Because of the way the data is handled in the Adafruit LED Matrix library, only the 3 most significant bits (MSB) are used for the display, allowing <em>only</em> 8 shades per color channel, or 8^3=512 colors. Therefore, when creating animations, one must keep in mind that only the 3 MSB are actually relevant.</p>
-<p >All code, animations and options are [extensively documented using Doxygen]().</p>
+<p >All code, animations and options are <a href="https://nurgak.github.io/IoT-RGB-LED-Matrix-Socket/">extensively documented using Doxygen</a>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Example animations</h1>
 <p >Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.</p>
