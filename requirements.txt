@@ -1,5 +1,7 @@
 pendulum
 numpy
+pil
+opencv
 requests
 qrcode
 numpy-hilbert-curve
