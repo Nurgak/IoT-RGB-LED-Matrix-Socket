@@ -18,12 +18,11 @@ jobs:
           docker-compose run iot-rgb-led-matrix bash
           python3 -m pip install --upgrade pip
           pip install --no-cache-dir -r requirements.txt
-          pip install pytest pytest-cov pytest-pylint pytest-black
+          pip install coveralls pytest pytest-cov pytest-pylint pytest-black
           cd client
-          pytest
+          coverage run -m pytest
       - name: Coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
-          pip install coveralls
           coveralls --service=github
