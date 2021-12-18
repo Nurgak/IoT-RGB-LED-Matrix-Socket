@@ -7,9 +7,9 @@ services:
     environment:
       - HOST_IP=192.168.3.15
       - PORT=7777
-      - ANIMATION=home.Home
+      - ANIMATION=analog_clock.AnalogClock
       - TZ=Asia/Tokyo
-      - KEY=f31dbac8ff49739db102759af1e8099b
+      - KEY=OPENWEATHERMAP_API_KEY
       - CITY=Tokyo
       - TEXT=test
     volumes:
