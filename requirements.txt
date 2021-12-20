@@ -1,7 +1,4 @@
 pendulum
-#numpy
-#pillow
-#opencv-python
 requests
 qrcode
 numpy-hilbert-curve

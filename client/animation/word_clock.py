@@ -39,7 +39,7 @@ class English(WordClock):
     """
 
     def __init__(self, shape: tuple, *args: list, **kwargs: dict):
-        kwargs["font"] = "./font/small_5x3.ttf"
+        kwargs["font"] = "client/font/small_5x3.ttf"
         kwargs["size"] = 8
         kwargs["wrap"] = Text.WRAP_NORMAL
         super().__init__(shape, *args, **kwargs)
@@ -111,7 +111,7 @@ class Japanese(WordClock):
     """
 
     def __init__(self, shape: tuple, *args: list, **kwargs: dict):
-        kwargs["font"] = "./font/misaki_mincho.ttf"
+        kwargs["font"] = "client/font/misaki_mincho.ttf"
         kwargs["size"] = 8
         kwargs["wrap"] = Text.WRAP_FORCE
         super().__init__(shape, *args, **kwargs)

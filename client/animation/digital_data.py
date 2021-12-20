@@ -33,7 +33,7 @@ class DigitalData(Animate):
 
     def __init__(self, shape: tuple, *args: list, **kwargs: dict):
         super().__init__(shape)
-        self.__fontpath = "./font/small_5x3.ttf"
+        self.__fontpath = "client/font/small_5x3.ttf"
         self.__fontsize = 8
 
         self.__localtime = Localtime(timezone=kwargs["timezone"], update_rate=1.0)
