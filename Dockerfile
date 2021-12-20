@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 SHELL ["/bin/bash", "-c"]
 WORKDIR /root/ws
-ENV ANIMATION=AnalogClock \
+ENV ANIMATION=analog_clock.AnalogClock \
     WIDTH=32 \
     HEIGHT=32 \
     PORT=7777 \
@@ -23,5 +23,5 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     pip install --no-cache-dir -r requirements.txt
 
-CMD cd client && ./main.py "${ANIMATION}" --width "${WIDTH}" --height "${HEIGHT}"  --key "${KEY}" \
+CMD client/main.py "${ANIMATION}" --width "${WIDTH}" --height "${HEIGHT}"  --key "${KEY}" \
     --city "${CITY}" --timezone "${TZ}" --text "${TEXT}" display "${HOST_IP}" --port "${PORT}"
