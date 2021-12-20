@@ -19,6 +19,7 @@ jobs:
       - name: Stop container
         run: docker-compose down
       - name: Coveralls
+        env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
           pip install coveralls
