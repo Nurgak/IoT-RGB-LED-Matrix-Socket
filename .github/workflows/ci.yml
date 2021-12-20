@@ -9,16 +9,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Build
-        run: docker-compose build
+        run: docker-compose build --pull --no-cache
+      - name: Start container
+        run: docker-compose up -d
+      - name: Install test suite
+        run: docker exec client pip install coveralls pytest pytest-cov pytest-pylint pytest-black
       - name: Test and lint
-        env:
-          PYTHONPATH: ${{ github.workspace }}/client
-          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+        run: docker exec -e OPENWEATHERMAP_API_KEY=${{ secrets.OPENWEATHERMAP_API_KEY }} client pytest client
+      - name: Stop container
+        run: docker-compose down
+      - name: Coveralls
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
-          docker-compose run iot-rgb-led-matrix bash
-          python3 -m pip install --upgrade pip
-          pip install --no-cache-dir -r requirements.txt
-          pip install coveralls pytest pytest-cov pytest-pylint pytest-black
-          pytest client
+          pip install coveralls
           coveralls

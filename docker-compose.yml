@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   iot-rgb-led-matrix:
+    container_name: client
     image: iot_rgb_led_matrix
     build: .
     restart: always
