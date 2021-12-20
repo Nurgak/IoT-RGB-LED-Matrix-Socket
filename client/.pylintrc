@@ -1,8 +1,0 @@
-[MASTER]
-extension-pkg-whitelist=cv2
-
-[VARIABLES]
-ignored-argument-names=args|kwargs
-
-[SIMILARITIES]
-ignore-imports=yes
