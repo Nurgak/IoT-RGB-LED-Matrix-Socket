@@ -16,11 +16,7 @@ jobs:
         run: docker exec client pip install coveralls pytest pytest-cov pytest-pylint pytest-black
       - name: Test and lint
         run: docker exec -e OPENWEATHERMAP_API_KEY=${{ secrets.OPENWEATHERMAP_API_KEY }} client pytest client
+      - name: Coveralls
+        run: docker exec -e COVERALLS_REPO_TOKEN=${{ secrets.COVERALLS_REPO_TOKEN }} client coveralls
       - name: Stop container
         run: docker-compose down
-      - name: Coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: |
-          pip install coveralls
-          coveralls
