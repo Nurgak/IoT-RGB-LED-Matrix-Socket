@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: 200c5140928954412f1792f44435fe5660a669a5</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: de8b09f0bbb9d27177744a5d6494a4024b293e13</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -75,8 +75,8 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md1"></a>
 Example animations</h1>
 <p >Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.</p>
-<p >To display an animation on the matrix call the following command </p><pre class="fragment">./main.py $ANIMATION [OPTIONS] display $HOST_IP
-</pre><p> For example </p><pre class="fragment">./main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
+<p >To display an animation on the matrix call the following command </p><pre class="fragment">client/main.py $ANIMATION [OPTIONS] display $HOST_IP
+</pre><p> For example </p><pre class="fragment">client/main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
 </pre> <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Animation   </th><th class="markdownTableHeadNone">Preview   </th><th class="markdownTableHeadNone">Command    </th></tr>
@@ -168,14 +168,14 @@ Usage</h1>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Main</h2>
 <p >The <code>main.py</code> file, in the <code>client</code> directory, imports all the example animations and allows to configure and launch them. This is the beginning of all execution.</p>
-<p >The <code>-h</code> flag displays how to use it. </p><pre class="fragment">./main.py -h
+<p >The <code>-h</code> flag displays how to use it. </p><pre class="fragment">client/main.py -h
 </pre><p> Some animations have extra arguments, such as the time zone for the clocks. See the usage for specific animations in the examples section.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Display</h3>
-<p >To display the animation on an RGB LED Matrix add the <code>display</code> suffix with the IP of the ESP32. </p><pre class="fragment">./main.py $ANIMATION display $HOST_IP
+<p >To display the animation on an RGB LED Matrix add the <code>display</code> suffix with the IP of the ESP32. </p><pre class="fragment">client/main.py $ANIMATION display $HOST_IP
 </pre> <h3><a class="anchor" id="autotoc_md11"></a>
 Saving</h3>
-<p >To save an animation to a file add the <code>save</code> suffix with the number of frames to save. One frame will result in a static <code>png</code>, more will be saved as a <code>gif</code>. The image file name will be <code>$ANIMATION.png/gif</code>. </p><pre class="fragment">./main.py $ANIMATION save $FRAMES
+<p >To save an animation to a file add the <code>save</code> suffix with the number of frames to save. One frame will result in a static <code>png</code>, more will be saved as a <code>gif</code>. The image file name will be <code>$ANIMATION.png/gif</code>. </p><pre class="fragment">client/main.py $ANIMATION save $FRAMES
 </pre><p> The saving script acts as a virtual display, decoding the encoded frame as the actual display would. Therefore, as with the real display, only the 3 MSB of the color are relevant.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Docker</h2>
