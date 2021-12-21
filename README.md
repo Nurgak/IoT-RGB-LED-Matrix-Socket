@@ -18,11 +18,11 @@ Having the client written in Python makes it straight forward to create animatio
 
 To display an animation on the matrix call the following command
 
-    ./main.py $ANIMATION [OPTIONS] display $HOST_IP
+    client/main.py $ANIMATION [OPTIONS] display $HOST_IP
 
 For example
 
-    ./main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
+    client/main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
 
 | Animation | Preview | Command |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ The `main.py` file, in the `client` directory, imports all the example animation
 
 The `-h` flag displays how to use it.
 
-    ./main.py -h
+    client/main.py -h
 
 Some animations have extra arguments, such as the time zone for the clocks. See the usage for specific animations in the examples section.
 
@@ -149,13 +149,13 @@ Some animations have extra arguments, such as the time zone for the clocks. See 
 
 To display the animation on an RGB LED Matrix add the `display` suffix with the IP of the ESP32.
 
-    ./main.py $ANIMATION display $HOST_IP
+    client/main.py $ANIMATION display $HOST_IP
 
 #### Saving
 
 To save an animation to a file add the `save` suffix with the number of frames to save. One frame will result in a static `png`, more will be saved as a `gif`. The image file name will be `$ANIMATION.png/gif`.
 
-    ./main.py $ANIMATION save $FRAMES
+    client/main.py $ANIMATION save $FRAMES
 
 The saving script acts as a virtual display, decoding the encoded frame as the actual display would. Therefore, as with the real display, only the 3 MSB of the color are relevant.
 
