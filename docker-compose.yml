@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.6"
 services:
   iot-rgb-led-matrix:
     container_name: client
@@ -6,9 +6,9 @@ services:
     build: .
     restart: always
     environment:
-      - HOST_IP=192.168.3.15
+      - HOST_IP=192.168.3.25
       - PORT=7777
-      - ANIMATION=analog_clock.AnalogClock
+      - ANIMATION=rgb.GrowingTree
       - TZ=Asia/Tokyo
       - KEY=OPENWEATHERMAP_API_KEY
       - CITY=Tokyo
