@@ -46,7 +46,11 @@ parser_save.add_argument(
     help="specify number of frames, 1 will generate a png, more will generate a gif",
 )
 parser_save.add_argument(
-    "-d", "--dir", type=str, default="media", help="directory where to save the image"
+    "-d",
+    "--dir",
+    type=str,
+    default="client/media",
+    help="directory where to save the image",
 )
 
 parser_display = subparsers.add_parser(

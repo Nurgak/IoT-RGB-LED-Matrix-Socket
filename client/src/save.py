@@ -92,7 +92,9 @@ class Save(Thread):
         return screen
 
     def save(self) -> str:
-        """! Save the animation."""
+        """! Save the animation.
+        @return The file name under which the image was saved.
+        """
         extention = "gif" if self.__frames > 1 else "png"
         filename = f"{self.__name}.{extention}"
         self.__frame_array[0].save(
