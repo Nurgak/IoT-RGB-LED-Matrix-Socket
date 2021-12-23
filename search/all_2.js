@@ -11,9 +11,10 @@ var searchData=
   ['qr_5fcode_8',['qr_code',['../namespaceclient_1_1animation_1_1qr__code.html',1,'client::animation']]],
   ['rgb_9',['rgb',['../namespaceclient_1_1animation_1_1rgb.html',1,'client::animation']]],
   ['save_10',['save',['../namespaceclient_1_1src_1_1save.html',1,'client::src']]],
-  ['test_5fanimation_11',['test_animation',['../namespaceclient_1_1test_1_1test__animation.html',1,'client::test']]],
-  ['text_12',['text',['../namespaceclient_1_1src_1_1text.html',1,'client::src']]],
-  ['water_13',['water',['../namespaceclient_1_1animation_1_1water.html',1,'client::animation']]],
-  ['weather_14',['weather',['../namespaceclient_1_1src_1_1weather.html',1,'client::src']]],
-  ['word_5fclock_15',['word_clock',['../namespaceclient_1_1animation_1_1word__clock.html',1,'client::animation']]]
+  ['snow_11',['snow',['../namespaceclient_1_1animation_1_1snow.html',1,'client::animation']]],
+  ['test_5fanimation_12',['test_animation',['../namespaceclient_1_1test_1_1test__animation.html',1,'client::test']]],
+  ['text_13',['text',['../namespaceclient_1_1src_1_1text.html',1,'client::src']]],
+  ['water_14',['water',['../namespaceclient_1_1animation_1_1water.html',1,'client::animation']]],
+  ['weather_15',['weather',['../namespaceclient_1_1src_1_1weather.html',1,'client::src']]],
+  ['word_5fclock_16',['word_clock',['../namespaceclient_1_1animation_1_1word__clock.html',1,'client::animation']]]
 ];

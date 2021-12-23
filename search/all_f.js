@@ -12,8 +12,9 @@ var searchData=
   ['test_5fopenweathermap_5finvalid_9',['test_openweathermap_invalid',['../namespaceclient_1_1test_1_1test__animation.html#ac9ae8c278ba1e566e05f32e8cf24d28c',1,'client::test::test_animation']]],
   ['test_5fopenweathermap_5fvalid_10',['test_openweathermap_valid',['../namespaceclient_1_1test_1_1test__animation.html#a26bfafd28a71a4a1e8132c8c9e567398',1,'client::test::test_animation']]],
   ['test_5fqr_5fcode_11',['test_qr_code',['../namespaceclient_1_1test_1_1test__animation.html#a15896d3b7fc3b68b8accda18c60e17a8',1,'client::test::test_animation']]],
-  ['test_5fwater_12',['test_water',['../namespaceclient_1_1test_1_1test__animation.html#ae7459310c6fa9216b4e2b6f74615eaf6',1,'client::test::test_animation']]],
-  ['test_5fword_5fclock_5fenglish_13',['test_word_clock_english',['../namespaceclient_1_1test_1_1test__animation.html#af4a10ef7725279e9fc316aff9be0599c',1,'client::test::test_animation']]],
-  ['test_5fword_5fclock_5fjapanese_14',['test_word_clock_japanese',['../namespaceclient_1_1test_1_1test__animation.html#a90c5ca9016830c7f2fdba44c1c8df4df',1,'client::test::test_animation']]],
-  ['text_15',['Text',['../classclient_1_1src_1_1text_1_1Text.html',1,'client::src::text']]]
+  ['test_5fsnow_12',['test_snow',['../namespaceclient_1_1test_1_1test__animation.html#a92c8d6e967821183b1da9d7f99cc2b4d',1,'client::test::test_animation']]],
+  ['test_5fwater_13',['test_water',['../namespaceclient_1_1test_1_1test__animation.html#ae7459310c6fa9216b4e2b6f74615eaf6',1,'client::test::test_animation']]],
+  ['test_5fword_5fclock_5fenglish_14',['test_word_clock_english',['../namespaceclient_1_1test_1_1test__animation.html#af4a10ef7725279e9fc316aff9be0599c',1,'client::test::test_animation']]],
+  ['test_5fword_5fclock_5fjapanese_15',['test_word_clock_japanese',['../namespaceclient_1_1test_1_1test__animation.html#a90c5ca9016830c7f2fdba44c1c8df4df',1,'client::test::test_animation']]],
+  ['text_16',['Text',['../classclient_1_1src_1_1text_1_1Text.html',1,'client::src::text']]]
 ];
