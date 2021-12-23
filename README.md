@@ -38,6 +38,7 @@ For example
 | Mandelbrot fractal animation | ![Mandelbrot fractal animation](client/media/rgb.Mandelbrot.gif) | `rgb.Mandelbrot`
 | Static QR code | ![Static QR code](client/media/qr_code.QRCode.png) | `qr_code.QRCode --text "test"`
 | Generated water drop animation | ![Generated water drop animation](client/media/water.Water.gif) | `water.Water`
+| Generated falling snow animation | ![Generated falling snow animation](client/media/snow.Snow.gif) | `snow.Snow`
 
 ## Hardware
 

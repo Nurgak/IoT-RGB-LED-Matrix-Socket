@@ -157,3 +157,10 @@ def test_hilbert():
         ["client/main.py", "rgb.HilbertCurve", "-r", "10000", "save", "1023"],
         check=True,
     )
+
+
+def test_snow():
+    """! Test snow animation."""
+    subprocess.run(
+        ["client/main.py", "snow.Snow", "-r", "10000", "save", "100"], check=True
+    )
