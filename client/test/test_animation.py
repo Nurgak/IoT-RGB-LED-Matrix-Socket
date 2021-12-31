@@ -164,3 +164,20 @@ def test_snow():
     subprocess.run(
         ["client/main.py", "snow.Snow", "-r", "10000", "save", "100"], check=True
     )
+
+
+def test_matrix():
+    """! Test the Matrix rain animation."""
+    subprocess.run(
+        [
+            "client/main.py",
+            "matrix.Matrix",
+            "--text",
+            "MATRIXmatrix",
+            "-r",
+            "10000",
+            "save",
+            "100",
+        ],
+        check=True,
+    )

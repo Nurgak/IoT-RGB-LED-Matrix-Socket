@@ -39,6 +39,7 @@ For example
 | Static QR code | ![Static QR code](client/media/qr_code.QRCode.png) | `qr_code.QRCode --text "test"`
 | Generated water drop animation | ![Generated water drop animation](client/media/water.Water.gif) | `water.Water`
 | Generated falling snow animation | ![Generated falling snow animation](client/media/snow.Snow.gif) | `snow.Snow`
+| Matrix rain animation | ![Matrix rain animation](client/media/matrix.Matrix.gif) | `matrix.Matrix`
 
 ## Hardware
 
