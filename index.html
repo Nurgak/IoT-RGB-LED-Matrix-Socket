@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: e7a5b9b4c5252b1873aa4513abeca4979244dda5</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/feature/wifimanager, commit: 576d3b55f6d655ca418abc1917aa92f1285ea37d</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -74,7 +74,7 @@ $(function() {
 <p >All code, animations and options are <a href="https://nurgak.github.io/IoT-RGB-LED-Matrix-Socket/">extensively documented using Doxygen</a>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Example animations</h1>
-<p >Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.</p>
+<p >Having the client written in Python makes it straight forward to create generated animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.</p>
 <p >To display an animation on the matrix call the following command </p><pre class="fragment">client/main.py $ANIMATION [OPTIONS] display $HOST_IP
 </pre><p> For example </p><pre class="fragment">client/main.py analog_clock.AnalogClock --timezone Asia/Tokyo display 192.168.3.15
 </pre> <table class="markdownTable">
@@ -107,7 +107,7 @@ Example animations</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Generated falling snow animation   </td><td class="markdownTableBodyNone"><img src="snow.Snow.gif" alt="" class="inline" title="Generated falling snow animation"/>  </td><td class="markdownTableBodyNone"><code>snow.Snow</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Matrix rain animation   </td><td class="markdownTableBodyNone"><img src="matrix.Matrix.gif" alt="" class="inline" title="Matrix rain animation"/>  </td><td class="markdownTableBodyNone"><code>matrix.Matrix</code>   </td></tr>
+<td class="markdownTableBodyNone">Matrix rain animation   </td><td class="markdownTableBodyNone"><img src="matrix.Matrix.gif" alt="" class="inline" title="Matrix rain animation"/>  </td><td class="markdownTableBodyNone"><code>matrix.Matrix --text "test"</code>   </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Hardware</h1>
@@ -154,12 +154,14 @@ Dependencies</h2>
 <li><a href="https://github.com/adafruit/RGB-matrix-Panel">https://github.com/adafruit/RGB-matrix-Panel</a></li>
 <li><a href="https://github.com/adafruit/Adafruit-GFX-Library">https://github.com/adafruit/Adafruit-GFX-Library</a></li>
 <li><a href="https://github.com/adafruit/Adafruit_BusIO">https://github.com/adafruit/Adafruit_BusIO</a></li>
+<li><a href="https://www.arduino.cc/reference/en/libraries/wifimanager/">https://www.arduino.cc/reference/en/libraries/wifimanager/</a></li>
 </ul>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Firmware</h2>
-<p >The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32. The IP is displayed on the LED matrix when it starts up.</p>
-<p >The WiFi credentials need be provided in the <code>config.h</code> file.</p>
-<p ><img src="./ip.jpg" alt="IoT RGB LED Matrix showing its IP address upon successful connection to the local network." class="inline"/></p>
+<p >The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32.</p>
+<p >The WiFi credentials need to be entered using the WiFi access point created by the ESP32 (named <code>ESP32_xxxxxxxx</code>), from the address <a href="http://192.168.4.1">http://192.168.4.1</a>. A static IP can be assigned, which is recommended.</p>
+<p ><img src="./setup.png" alt="The WiFi credentials setup screen." class="inline"/></p>
+<p >Upon a successful connection to the local WiFi network the matrix displays its IP address.</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Fonts</h2>
 <p >The fonts used in this project are property of their respective creators. As they are free to be redistributed they are also bundeled with this project, but they have their own licenses distinct from this project.</p>
