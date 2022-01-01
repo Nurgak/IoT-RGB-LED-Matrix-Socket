@@ -14,7 +14,7 @@ All code, animations and options are [extensively documented using Doxygen](http
 
 ## Example animations
 
-Having the client written in Python makes it straight forward to create animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.
+Having the client written in Python makes it straight forward to create generated animations using standard libraries and image processing tools, such as Numpy and OpenCV, and link them to various APIs (weather data, mail service...) and display them quickly.
 
 To display an animation on the matrix call the following command
 
@@ -39,7 +39,7 @@ For example
 | Static QR code | ![Static QR code](client/media/qr_code.QRCode.png) | `qr_code.QRCode --text "test"`
 | Generated water drop animation | ![Generated water drop animation](client/media/water.Water.gif) | `water.Water`
 | Generated falling snow animation | ![Generated falling snow animation](client/media/snow.Snow.gif) | `snow.Snow`
-| Matrix rain animation | ![Matrix rain animation](client/media/matrix.Matrix.gif) | `matrix.Matrix`
+| Matrix rain animation | ![Matrix rain animation](client/media/matrix.Matrix.gif) | `matrix.Matrix --text "test"`
 
 ## Hardware
 
@@ -119,14 +119,17 @@ The ESP32 is programmed via Arduino IDE and needs the following libraries
 * https://github.com/adafruit/RGB-matrix-Panel
 * https://github.com/adafruit/Adafruit-GFX-Library
 * https://github.com/adafruit/Adafruit_BusIO
+* https://www.arduino.cc/reference/en/libraries/wifimanager/
 
 ### Firmware
 
-The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32. The IP is displayed on the LED matrix when it starts up.
+The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32.
 
-The WiFi credentials need be provided in the `config.h` file.
+The WiFi credentials need to be entered using the WiFi access point created by the ESP32 (named `ESP32_xxxxxxxx`), from the address http://192.168.4.1. A static IP can be assigned, which is recommended.
 
-![IoT RGB LED Matrix showing its IP address upon successful connection to the local network.](./ip.jpg)
+![The WiFi credentials setup screen.](./setup.png)
+
+Upon a successful connection to the local WiFi network the matrix displays its IP address.
 
 ### Fonts
 

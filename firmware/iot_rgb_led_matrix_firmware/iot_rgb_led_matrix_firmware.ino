@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <WiFiManager.h>
 #include <RGBmatrixPanel.h>
 #include <Fonts/FreeSerif9pt7b.h>
 #include "config.h"
@@ -10,15 +11,14 @@ WiFiServer server(SERVER_PORT);
 void setup()
 {
   matrix.begin();
-  
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
-  matrix.print("WiFi\nconnect");
+  matrix.print("WiFi\nsetup");
 
-  while(WiFi.status() != WL_CONNECTED)
-  {
-    delay(1000);
-  }
+  WiFiManager wm;
+  //wm.resetSettings();
+  wm.setShowStaticFields(true);
+  wm.setShowDnsFields(true);
+  wm.autoConnect();
 
   IPAddress ip = WiFi.localIP();
   Serial.println(ip);
