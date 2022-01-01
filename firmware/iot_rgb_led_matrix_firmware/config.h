@@ -1,7 +1,5 @@
 #pragma once
 
-static const char* WIFI_SSID = "Tama";
-static const char* WIFI_PASSWORD = "tamamamekumogoma";
 static const unsigned int SERVER_PORT = 7777;
 static const unsigned int TIMEOUT_MS = 5;
 
