@@ -18,7 +18,7 @@ void setup()
 
   WiFiManager wifiManager;
 
-  wifiManager.resetSettings();
+  //wifiManager.resetSettings();
   snprintf(AP_NAME, sizeof(AP_NAME), "ESPLEDMatrix-%04X", ESP.getEfuseMac());
 
   wifiManager.setSTAStaticIPConfig(STATIC_IP, STATIC_GATEWAY, STATIC_SUBNET);
