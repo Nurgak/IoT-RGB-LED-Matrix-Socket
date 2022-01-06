@@ -1,4 +1,3 @@
-#include <WiFi.h>
 #include <WiFiManager.h>
 #include <RGBmatrixPanel.h>
 #include <Fonts/FreeSerif9pt7b.h>
@@ -6,27 +5,29 @@
 
 RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 32, RGB);
 
+static char AP_NAME[24];
 WiFiServer server(SERVER_PORT);
 
 void setup()
 {
-  matrix.begin();
+  // Needed for WiFi manager debug.
+  Serial.begin(115200);
 
+  matrix.begin();
   matrix.print("WiFi\nsetup");
 
-  WiFiManager wm;
-  //wm.resetSettings();
-  wm.setShowStaticFields(true);
-  wm.setShowDnsFields(true);
-  wm.autoConnect();
+  WiFiManager wifiManager;
 
-  IPAddress ip = WiFi.localIP();
-  Serial.println(ip);
+  wifiManager.resetSettings();
+  snprintf(AP_NAME, sizeof(AP_NAME), "ESPLEDMatrix-%04X", ESP.getEfuseMac());
+
+  wifiManager.setSTAStaticIPConfig(STATIC_IP, STATIC_GATEWAY, STATIC_SUBNET);
+  wifiManager.autoConnect(AP_NAME, AP_PASSWORD);
 
   // Print the IP on the matrix so the client could connect to it.
   matrix.fillScreen(0);
   matrix.setCursor(0, 0);
-  matrix.printf("%d\n%d\n%d\n%d", ip[0], ip[1], ip[2], ip[3]);
+  matrix.printf("%d\n%d\n%d\n%d", STATIC_IP[0], STATIC_IP[1], STATIC_IP[2], STATIC_IP[3]);
 
   server.begin();
 
@@ -37,6 +38,7 @@ void listen(void *pvParameter)
 {
   unsigned long time_start_ms = 0;
   uint8_t * buffer_ptr = matrix.backBuffer();
+  size_t bytes_read;
 
   while(true)
   {
@@ -47,7 +49,7 @@ void listen(void *pvParameter)
       {
         while(client.available())
         {
-          client.readBytesUntil('\n', buffer_ptr, BUFFER_SIZE);
+          bytes_read = client.readBytesUntil('\n', buffer_ptr, BUFFER_SIZE);
           client.write('\n');
           vTaskDelay(1);
         }
