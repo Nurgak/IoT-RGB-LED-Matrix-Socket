@@ -91,7 +91,7 @@ class Display:
     @staticmethod
     def pack(screen: np.ndarray) -> bytearray:
         """! Pack the frame data to be directly read into the display buffer.
-        @param screen The screen data.
+        @param screen The screen data. A terminator character @c \n is added for data syncing.
         @return The packed data to be sent over a socket connection to the screen.
         """
         if screen.shape[0] == 32:
@@ -115,4 +115,4 @@ class Display:
         out[1::3] += np.sum(bit2, axis=2) + np.sum(bit5, axis=2)
         out[2::3] += np.sum(bit3, axis=2) + np.sum(bit6, axis=2)
 
-        return bytearray(out)
+        return bytearray(out) + b"\n"
