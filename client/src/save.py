@@ -12,6 +12,7 @@ class Save(Thread):
 
     __frame_array = []
     __TIMEOUT = 3
+    __FRAME_LENGTH = 48 * 32 + 1
 
     def __init__(
         self, name: str, frames: int = 1, duration: int = 40, port: int = 7777
@@ -40,7 +41,9 @@ class Save(Thread):
             conn, _ = self.__server.accept()
             with conn:
                 while len(self.__frame_array) < self.__frames:
-                    data = conn.recv(48 * 32 + 1)
+                    data = conn.recv(self.__FRAME_LENGTH)
+                    # Remove the terminator character.
+                    data = data[:-1]
                     screen = self.unpack(data)
                     frame = Image.fromarray(screen)
                     self.__frame_array.append(frame)
