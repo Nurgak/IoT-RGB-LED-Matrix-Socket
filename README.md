@@ -123,11 +123,26 @@ The ESP32 is programmed via Arduino IDE and needs the following libraries
 
 ### Firmware
 
-The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32.
+The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client (Python script). The client must be on the same network and be provided with the IP of the ESP32.
 
-The WiFi credentials need to be entered using the WiFi access point created by the ESP32 (named `ESP32_xxxxxxxx`), from the address http://192.168.4.1. A static IP can be assigned, which is recommended.
+The firmware upload can be done using [Arduino IDE together with the ESP32 board definitions](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html#installing-using-boards-manager).
 
-![The WiFi credentials setup screen.](./setup.png)
+The board must be configured as follows from the `Tools` menu in Arduino IDE:
+* Board: ESP32 Dev Module
+* CPU Frequency: 240MHz
+* Flash Frequency: 80MHz
+* Flash size: 4MB (32Mb)
+* Partition Scheme: Default 4MB with spiffs
+* Core Debul Level: None
+* PSRAM: Disabled
+
+The static IP address must be set in the `config.h` file prior to firmware upload.
+
+The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named `RGBLEDMatrix-XXXXXXXX`), from the address http://192.168.4.1. By default the access point password is `rgbledmatirx`, once connected to the local WiFi this is no longer needed.
+
+![WiFi configuration setup page.](./setup.png)
+
+Note that the static IP information displayed on the WiFI configuration panel is not persistent over reboots and needs to be configured in the code.
 
 Upon a successful connection to the local WiFi network the matrix displays its IP address.
 
