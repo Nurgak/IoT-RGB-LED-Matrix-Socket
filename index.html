@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/dev, commit: ff44d33daf97564b47b0d1a8e446b256c9d6e0fa</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/fix/wifisetup, commit: 4dc0ffad6126f46c941a05e3c65d6a3a0bb1ee1f</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -158,9 +158,21 @@ Dependencies</h2>
 </ul>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Firmware</h2>
-<p >The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client. The client must be on the same network and be provided with the IP of the ESP32.</p>
-<p >The WiFi credentials need to be entered using the WiFi access point created by the ESP32 (named <code>ESP32_xxxxxxxx</code>), from the address <a href="http://192.168.4.1">http://192.168.4.1</a>. A static IP can be assigned, which is recommended.</p>
-<p ><img src="./setup.png" alt="The WiFi credentials setup screen." class="inline"/></p>
+<p >The ESP32 needs to have its firmware uploaded before it can recieve the data stream from the client (Python script). The client must be on the same network and be provided with the IP of the ESP32.</p>
+<p >The firmware upload can be done using <a href="https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html#installing-using-boards-manager">Arduino IDE together with the ESP32 board definitions</a>.</p>
+<p >The board must be configured as follows from the <code>Tools</code> menu in Arduino IDE:</p><ul>
+<li>Board: ESP32 Dev Module</li>
+<li>CPU Frequency: 240MHz</li>
+<li>Flash Frequency: 80MHz</li>
+<li>Flash size: 4MB (32Mb)</li>
+<li>Partition Scheme: Default 4MB with spiffs</li>
+<li>Core Debul Level: None</li>
+<li>PSRAM: Disabled</li>
+</ul>
+<p >The static IP address must be set in the <code>config.h</code> file prior to firmware upload.</p>
+<p >The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named <code>RGBLEDMatrix-XXXXXXXX</code>), from the address <a href="http://192.168.4.1">http://192.168.4.1</a>. By default the access point password is <code>rgbledmatirx</code>, once connected to the local WiFi this is no longer needed.</p>
+<p ><img src="./setup.png" alt="WiFi configuration setup page." class="inline"/></p>
+<p >Note that the static IP information displayed on the WiFI configuration panel is not persistent over reboots and needs to be configured in the code.</p>
 <p >Upon a successful connection to the local WiFi network the matrix displays its IP address.</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Fonts</h2>
