@@ -18,7 +18,7 @@ class HilbertCurveGenerator:
         @param bits Bits in the Hilbert curve.
         """
         self.__hilberts = HilbertDecode(
-            np.arange((2 ** dimension) ** bits), dimension, bits
+            np.arange((2**dimension) ** bits), dimension, bits
         )
 
     def __next__(self) -> int:
@@ -113,7 +113,7 @@ class Mandelbrot(Animate):
     __LIMITS = 1.5
     __HILBERT_BITS = 3
     __HILBERT_DIMENSION = 3
-    __ITERATION_MAX = (2 ** __HILBERT_DIMENSION) ** __HILBERT_BITS
+    __ITERATION_MAX = (2**__HILBERT_DIMENSION) ** __HILBERT_BITS
     __ITERATION_STEP = 1
     __iterations = 1
 
@@ -148,7 +148,7 @@ class Mandelbrot(Animate):
                 z_grid[elements_todo] ** 2 + complex_grid[elements_todo]
             )
             mask = np.logical_and(
-                (z_grid.real ** 2 + z_grid.imag ** 2) > 4, elements_todo
+                (z_grid.real**2 + z_grid.imag**2) > 4, elements_todo
             )
             iteration_grid[mask] = iteration
             elements_todo = np.logical_and(elements_todo, np.logical_not(mask))
