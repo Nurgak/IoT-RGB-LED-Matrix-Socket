@@ -4,7 +4,7 @@ services:
     container_name: client
     image: iot_rgb_led_matrix
     build: .
-    restart: always
+    restart: unless-stopped
     environment:
       - HOST_IP=192.168.3.25
       - PORT=7777
@@ -13,5 +13,3 @@ services:
       - KEY=OPENWEATHERMAP_API_KEY
       - CITY=Tokyo
       - TEXT=test
-    volumes:
-      - .:/root/ws
