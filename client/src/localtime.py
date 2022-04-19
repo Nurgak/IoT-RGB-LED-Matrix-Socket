@@ -108,5 +108,7 @@ class Localtime(Thread):
     def weekday(self) -> int:
         """! Return the current day of the week.
         @return Current day of the week, from 0 to 6, 0 representing Monday.
+        @sa https://en.wikipedia.org/wiki/ISO_8601
         """
-        return self.__time.day_of_week
+        # Transform the ISO8601 to a more convenient style.
+        return self.__time.day_of_week - 1
