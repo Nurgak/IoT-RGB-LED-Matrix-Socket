@@ -77,10 +77,16 @@ class DigitalData(Animate):
         )
         text.write(
             self._screen,
-            f"{months[self.__localtime.month - 1]} \
-            {self.__localtime.day}{date_suffix}",
+            f"{months[self.__localtime.month - 1]}",
             color=(0xFF, 0xFF, 0xFF),
             offset=(0, 5),
+        )
+        text.write(
+            self._screen,
+            f"{self.__localtime.day}{date_suffix}",
+            color=(0xFF, 0xFF, 0xFF),
+            offset=(17, 5),
+            wrap=Text.WRAP_NONE,
         )
         text.write(
             self._screen,
