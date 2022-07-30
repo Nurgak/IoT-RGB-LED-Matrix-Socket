@@ -209,7 +209,7 @@ To stop the docker container call the following
 
 * This project has only been tested with a 32x32 RGB LED matrix panel.
 * The recommended panel is an official [Adafruit one](https://www.adafruit.com/product/607). Cheaper can be had, but experience has shown major luminosity degradation and burn-in issues with those.
-
+* It can happen that the matrix freezes (the client is unable to send new data to the matrix). To prevent the matrix from showing an invalid state the watchdog restarts the ESP if no new data has been recieved for 2 minutes. Depeding on the usage, this behaviour might not be desired and can be disabled.
 
 ## License
 
