@@ -8,6 +8,7 @@ static const IPAddress STATIC_SUBNET(255, 255, 255, 0);
 static const unsigned int SERVER_PORT = 7777;
 static const unsigned int TIMEOUT_MS = 5;
 
+#define WDT_TIMEOUT 120
 #define BUFFER_SIZE 48 * 32 + 1
 
 #define CLK 14

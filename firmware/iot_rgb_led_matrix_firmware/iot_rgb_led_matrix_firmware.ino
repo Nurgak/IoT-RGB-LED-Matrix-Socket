@@ -1,4 +1,5 @@
 #include <WiFiManager.h>
+#include <esp_task_wdt.h>
 #include <RGBmatrixPanel.h>
 #include <Fonts/FreeSerif9pt7b.h>
 #include "config.h"
@@ -7,6 +8,7 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false, 32, RGB);
 
 static char AP_NAME[24];
 WiFiServer server(SERVER_PORT);
+TaskHandle_t listen_task_handle;
 
 void setup()
 {
@@ -31,7 +33,11 @@ void setup()
 
   server.begin();
 
-  xTaskCreatePinnedToCore(&listen, "listen", 2048, NULL, 1, NULL, 0);
+  xTaskCreatePinnedToCore(&listen, "listen", 2048, NULL, 1, &listen_task_handle, 0);
+
+  // Prevent the LED matrix from freezing: restart if no new data has been recieved for 120 seconds.
+  esp_task_wdt_init(WDT_TIMEOUT, true);
+  esp_task_wdt_add(listen_task_handle);
 }
 
 void listen(void *pvParameter)
@@ -51,6 +57,7 @@ void listen(void *pvParameter)
         {
           bytes_read = client.readBytesUntil('\n', buffer_ptr, BUFFER_SIZE);
           client.write('\n');
+          esp_task_wdt_reset();
           vTaskDelay(1);
         }
         vTaskDelay(1);
