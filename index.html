@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/fix/10-matrix-unpredictably-freezes, commit: 92680fb05a66c027258522f10cbee74ce426864f</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/fix/10-matrix-unpredictably-freezes, commit: d388483aa4b62ffa0c2fc939a742489706be667a</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -214,6 +214,7 @@ Notes</h1>
 <ul>
 <li>This project has only been tested with a 32x32 RGB LED matrix panel.</li>
 <li>The recommended panel is an official <a href="https://www.adafruit.com/product/607">Adafruit one</a>. Cheaper can be had, but experience has shown major luminosity degradation and burn-in issues with those.</li>
+<li>It can happen that the matrix freezes (the client is unable to send new data to the matrix). To prevent the matrix from showing an invalid state the watchdog restarts the ESP if no new data has been recieved for 2 minutes. Depeding on the usage, this behaviour might not be desired and can be disabled.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md17"></a>
 License</h1>
