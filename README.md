@@ -136,15 +136,13 @@ The board must be configured as follows from the `Tools` menu in Arduino IDE:
 * Core Debul Level: None
 * PSRAM: Disabled
 
-The static IP address must be set in the `config.h` file prior to firmware upload.
-
-The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named `RGBLEDMatrix-XXXXXXXX`), from the address http://192.168.4.1. By default the access point password is `rgbledmatirx`, once connected to the local WiFi this is no longer needed.
+The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named `ESPLEDMATRIX-XXXXXX`), from the address http://192.168.4.1. Once connected to the local WiFi the access point no longer works.
 
 ![WiFi configuration setup page.](./setup.png)
 
-Note that the static IP information displayed on the WiFI configuration panel is not persistent over reboots and needs to be configured in the code.
-
 Upon a successful connection to the local WiFi network the matrix displays its IP address.
+
+Once the firmware is uploaded the ESP32 can be reprogrammed using over-the-air (OTA) updating by selecting the new port from `Tools`, the password is the same as the module name (`ESPLEDMATRIX-XXXXXX`).
 
 ### Fonts
 
