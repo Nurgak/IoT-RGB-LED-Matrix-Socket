@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/12-add-ota-update-capability, commit: 49b0dbae4c7ce50ef31ae18c9b4efda152c7fbca</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/12-add-ota-update-capability, commit: a5ba9329d4069f6bebe5707f016689938f77bd7c</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -169,11 +169,10 @@ Firmware</h2>
 <li>Core Debul Level: None</li>
 <li>PSRAM: Disabled</li>
 </ul>
-<p >The static IP address must be set in the <code>config.h</code> file prior to firmware upload.</p>
-<p >The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named <code>RGBLEDMatrix-XXXXXXXX</code>), from the address <a href="http://192.168.4.1">http://192.168.4.1</a>. By default the access point password is <code>rgbledmatirx</code>, once connected to the local WiFi this is no longer needed.</p>
+<p >The WiFi credentials need to be entered once using the WiFi access point created by the ESP32 (named <code>ESPLEDMATRIX-XXXXXX</code>), from the address <a href="http://192.168.4.1">http://192.168.4.1</a>. Once connected to the local WiFi the access point no longer works.</p>
 <p ><img src="./setup.png" alt="WiFi configuration setup page." class="inline"/></p>
-<p >Note that the static IP information displayed on the WiFI configuration panel is not persistent over reboots and needs to be configured in the code.</p>
 <p >Upon a successful connection to the local WiFi network the matrix displays its IP address.</p>
+<p >Once the firmware is uploaded the ESP32 can be reprogrammed using over-the-air (OTA) updating by selecting the new port from <code>Tools</code>, the password is the same as the module name (<code>ESPLEDMATRIX-XXXXXX</code>).</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Fonts</h2>
 <p >The fonts used in this project are property of their respective creators. As they are free to be redistributed they are also bundeled with this project, but they have their own licenses distinct from this project.</p>
