@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/feature/13-current-limiting-feature, commit: 9346b7c3ad3d4726306cd4a51b1758d1687c1855</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/feature/13-current-limiting-feature, commit: ac3bc66457ab790f73f06198159cce307db2dcc7</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -80,9 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a24295ded93bfdb6aae17ad77f3e29a18"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#a24295ded93bfdb6aae17ad77f3e29a18">__init__</a> (self, str server, int port=7777, int timeout=3.0)</td></tr>
-<tr class="memdesc:a24295ded93bfdb6aae17ad77f3e29a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1display_1_1Display.html#a24295ded93bfdb6aae17ad77f3e29a18">More...</a><br /></td></tr>
-<tr class="separator:a24295ded93bfdb6aae17ad77f3e29a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2242c71ce749da444155437a25533ec7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#a2242c71ce749da444155437a25533ec7">__init__</a> (self, str server, int port=7777, int timeout=3.0, int current_max=0)</td></tr>
+<tr class="memdesc:a2242c71ce749da444155437a25533ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classclient_1_1src_1_1display_1_1Display.html#a2242c71ce749da444155437a25533ec7">More...</a><br /></td></tr>
+<tr class="separator:a2242c71ce749da444155437a25533ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc8813a1c3cf496949f51dbecf78ad1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclient_1_1src_1_1display_1_1Display.html#aebc8813a1c3cf496949f51dbecf78ad1">connect</a> (self)</td></tr>
 <tr class="memdesc:aebc8813a1c3cf496949f51dbecf78ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to the server.  <a href="classclient_1_1src_1_1display_1_1Display.html#aebc8813a1c3cf496949f51dbecf78ad1">More...</a><br /></td></tr>
 <tr class="separator:aebc8813a1c3cf496949f51dbecf78ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,9 +98,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >RGB matrix panel socket client class. </p>
+<p >The display current consumption per pixel has been measured for each of the colors separately using a USB power meter. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a24295ded93bfdb6aae17ad77f3e29a18" name="a24295ded93bfdb6aae17ad77f3e29a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24295ded93bfdb6aae17ad77f3e29a18">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="a2242c71ce749da444155437a25533ec7" name="a2242c71ce749da444155437a25533ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2242c71ce749da444155437a25533ec7">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +128,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int &#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>3.0</code>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>3.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>current_max</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,6 +150,7 @@ Static Public Member Functions</h2></td></tr>
     <tr><td class="paramname">server</td><td>The server IP address. </td></tr>
     <tr><td class="paramname">port</td><td>The server port number. </td></tr>
     <tr><td class="paramname">timeout</td><td>Communication timeout in seconds. </td></tr>
+    <tr><td class="paramname">current_max</td><td>Maximum current limit the matrix is allowed to use, in Amperes. </td></tr>
   </table>
   </dd>
 </dl>
@@ -233,7 +241,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Update the screen. </p>
-<p >The screen will not be updated if the display has not changed from the previous update. </p><dl class="section return"><dt>Returns</dt><dd>True if the screen was updated, false otherwise. </dd></dl>
+<p >The screen will not be updated if the display has not changed from the previous update. If defined, dim screen if estimated current goes beyond limit. </p><dl class="section return"><dt>Returns</dt><dd>True if the screen was updated, false otherwise. </dd></dl>
 
 </div>
 </div>

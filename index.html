@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/feature/13-current-limiting-feature, commit: 9346b7c3ad3d4726306cd4a51b1758d1687c1855</span>
+   <div id="projectname">Internet-of-Things RGB LED Matrix via Sockets<span id="projectnumber">&#160;Branch: refs/heads/feature/13-current-limiting-feature, commit: ac3bc66457ab790f73f06198159cce307db2dcc7</span>
    </div>
    <div id="projectbrief">Animation generation scripts</div>
   </td>
@@ -190,6 +190,9 @@ Main</h2>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Display</h3>
 <p >To display the animation on an RGB LED Matrix add the <code>display</code> suffix with the IP of the ESP32. </p><pre class="fragment">client/main.py $ANIMATION display $HOST_IP
+</pre><p> The display can have its maximum current limited, by setting the <code>--current</code> argument in Amperes. This will automatically dim the LEDs, before sending the data to the matrix, if the estimated current exceeds the set value. The LED current consumption was measured for each of the 8 intensity levels and each color separately.</p>
+<p ><img src="./color_current.png" alt="Current consumption vs. LED color." class="inline"/></p>
+<p >To limit the current add the <code>--current</code>, or <code>-c</code>, argument to the call. </p><pre class="fragment">client/main.py $ANIMATION display $HOST_IP -c 1.2
 </pre> <h3><a class="anchor" id="autotoc_md11"></a>
 Saving</h3>
 <p >To save an animation to a file add the <code>save</code> suffix with the number of frames to save. One frame will result in a static <code>png</code>, more will be saved as a <code>gif</code>. The image file name will be <code>$ANIMATION.png/gif</code>. </p><pre class="fragment">client/main.py $ANIMATION save $FRAMES
