@@ -7,20 +7,27 @@ import numpy as np
 
 
 class Display:
-    """! RGB matrix panel socket client class."""
+    """! RGB matrix panel socket client class.
+    The display current consumption per pixel has been measured for each of the colors separately
+    using a USB power meter.
+    """
 
     __socket = None
     __screen = None
     __connected = False
+    __current_base = 0.13
+    __current_color = [0.000139,  0.0000605, 0.0000378]
 
-    def __init__(self, server: str, port: int = 7777, timeout: int = 3.0):
+    def __init__(self, server: str, port: int = 7777, timeout: int = 3.0, current_max: int = 0):
         """! Constructor.
         @param server The server IP address.
         @param port The server port number.
         @param timeout Communication timeout in seconds.
+        @param current_max Maximum current limit the matrix is allowed to use, in Amperes.
         """
         self.__connection = (server, port)
         self.__timeout = timeout
+        self.__current_max = current_max
 
     def connect(self) -> bool:
         """! Connect to the server.
@@ -51,7 +58,7 @@ class Display:
 
     def update(self, screen: np.ndarray) -> bool:
         """! Update the screen. The screen will not be updated if the display has not changed from
-        the previous update.
+        the previous update. If defined, dim screen if estimated current goes beyond limit.
         @return True if the screen was updated, false otherwise.
         """
         if np.all(screen == self.__screen):  # pragma: no cover
@@ -62,6 +69,20 @@ class Display:
             return False  # pragma: no cover
 
         self.__screen = screen.copy()
+
+        if self.__current_max > 0:
+            for _ in range(8):
+                current_estimated = self.__current_base
+                current_estimated += np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
+                current_estimated += np.sum(self.__screen[:, :, 1] >> 5) * self.__current_color[1]
+                current_estimated += np.sum(self.__screen[:, :, 2] >> 5) * self.__current_color[2]
+
+                if current_estimated <= self.__current_max:
+                    logging.debug("[%s] Estimated current: %.3fA.", self.__class__.__name__, current_estimated)
+                    break
+
+                self.__screen[(self.__screen & (0b111 << 5)) > 0] -= (1 << 5)
+
         packed = self.pack(self.__screen)
 
         try:

@@ -169,6 +169,14 @@ To display the animation on an RGB LED Matrix add the `display` suffix with the 
 
     client/main.py $ANIMATION display $HOST_IP
 
+The display can have its maximum current limited, by setting the `--current` argument in Amperes. This will automatically dim the LEDs, before sending the data to the matrix, if the estimated current exceeds the set value. The LED current consumption was measured for each of the 8 intensity levels and each color separately.
+
+![Current consumption vs. LED color.](./color_current.png)
+
+To limit the current add the `--current`, or `-c`, argument to the call.
+
+    client/main.py $ANIMATION display $HOST_IP -c 1.2
+
 #### Saving
 
 To save an animation to a file add the `save` suffix with the number of frames to save. One frame will result in a static `png`, more will be saved as a `gif`. The image file name will be `$ANIMATION.png/gif`.
