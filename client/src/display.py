@@ -73,10 +73,10 @@ class Display:
         self.__screen = screen.copy()
 
         for _ in range(7):
-                current_estimated = self.__current_base
+            current_estimated = self.__current_base
             current_estimated += (
-                np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
-            )
+                    np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
+                )
             current_estimated += (
                 np.sum(self.__screen[:, :, 1] >> 5) * self.__current_color[1]
             )
@@ -84,13 +84,13 @@ class Display:
                 np.sum(self.__screen[:, :, 2] >> 5) * self.__current_color[2]
             )
 
-                if current_estimated <= self.__current_max:
+            if current_estimated <= self.__current_max:
                 logging.debug(
                     "[%s] Estimated current: %.3fA.",
                     self.__class__.__name__,
                     current_estimated,
                 )
-                    break
+                break
 
             self.__screen[(self.__screen & (0b111 << 5)) > 0] -= 1 << 5
         else:
@@ -125,7 +125,7 @@ class Display:
     @staticmethod
     def pack(screen: np.ndarray) -> bytearray:
         """! Pack the frame data to be directly read into the display buffer.
-        @param screen The screen data. A terminator character @c \n is added for data syncing.
+        @param screen The screen data. A terminator character @c \\n is added for data syncing.
         @return The packed data to be sent over a socket connection to the screen.
         """
         if screen.shape[0] == 32:
