@@ -76,7 +76,7 @@ logging.basicConfig(format="%(levelname)s:%(message)s", level=logging_level)
 if hasattr(args, "frames"):  # pragma: no cover
     args.server = "0.0.0.0"
     args.port = 7777
-    args.current = 0.5
+    args.current = 0.2
     filename = os.path.join(args.dir, args.animation)
     Save(filename, frames=args.frames, port=args.port)
 
