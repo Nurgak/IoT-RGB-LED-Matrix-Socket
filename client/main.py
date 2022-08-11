@@ -59,7 +59,11 @@ parser_display = subparsers.add_parser(
 parser_display.add_argument("server", type=str, help="server address")
 parser_display.add_argument("-p", "--port", type=int, default=7777, help="server port")
 parser_display.add_argument(
-    "-c", "--current", type=float, default=float("inf"), help="maximum current in Amperes"
+    "-c",
+    "--current",
+    type=float,
+    default=float("inf"),
+    help="maximum current in Amperes",
 )
 
 args = parser.parse_args()
@@ -90,3 +94,4 @@ try:
     )
 except KeyboardInterrupt:  # pragma: no cover
     sys.exit(0)
+    

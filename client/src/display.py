@@ -16,10 +16,14 @@ class Display:
     __screen = None
     __connected = False
     __current_base = 0.13
-    __current_color = [0.000139,  0.0000605, 0.0000378]
+    __current_color = [0.000139, 0.0000605, 0.0000378]
 
     def __init__(
-        self, server: str, port: int = 7777, timeout: int = 3.0, current_max: float = float("inf")
+        self,
+        server: str,
+        port: int = 7777,
+        timeout: int = 3.0,
+        current_max: float = float("inf"),
     ):
         """! Constructor.
         @param server The server IP address.
@@ -75,8 +79,8 @@ class Display:
         for _ in range(7):
             current_estimated = self.__current_base
             current_estimated += (
-                    np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
-                )
+                np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
+            )
             current_estimated += (
                 np.sum(self.__screen[:, :, 1] >> 5) * self.__current_color[1]
             )
@@ -94,7 +98,9 @@ class Display:
 
             self.__screen[(self.__screen & (0b111 << 5)) > 0] -= 1 << 5
         else:
-            logging.warning("[%s] Screen dimmed to the maximum.", self.__class__.__name__)
+            logging.warning(
+                "[%s] Screen dimmed to the maximum.", self.__class__.__name__
+            )
 
         packed = self.pack(self.__screen)
 
@@ -125,7 +131,7 @@ class Display:
     @staticmethod
     def pack(screen: np.ndarray) -> bytearray:
         """! Pack the frame data to be directly read into the display buffer.
-        @param screen The screen data. A terminator character @c \\n is added for data syncing.
+        @param screen The screen data. A terminator character @c \n is added for data syncing.
         @return The packed data to be sent over a socket connection to the screen.
         """
         if screen.shape[0] == 32:
