@@ -18,7 +18,9 @@ class Display:
     __current_base = 0.13
     __current_color = [0.000139,  0.0000605, 0.0000378]
 
-    def __init__(self, server: str, port: int = 7777, timeout: int = 3.0, current_max: int = 0):
+    def __init__(
+        self, server: str, port: int = 7777, timeout: int = 3.0, current_max: float = float("inf")
+    ):
         """! Constructor.
         @param server The server IP address.
         @param port The server port number.
@@ -70,18 +72,29 @@ class Display:
 
         self.__screen = screen.copy()
 
-        if self.__current_max > 0:
-            for _ in range(8):
+        for _ in range(7):
                 current_estimated = self.__current_base
-                current_estimated += np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
-                current_estimated += np.sum(self.__screen[:, :, 1] >> 5) * self.__current_color[1]
-                current_estimated += np.sum(self.__screen[:, :, 2] >> 5) * self.__current_color[2]
+            current_estimated += (
+                np.sum(self.__screen[:, :, 0] >> 5) * self.__current_color[0]
+            )
+            current_estimated += (
+                np.sum(self.__screen[:, :, 1] >> 5) * self.__current_color[1]
+            )
+            current_estimated += (
+                np.sum(self.__screen[:, :, 2] >> 5) * self.__current_color[2]
+            )
 
                 if current_estimated <= self.__current_max:
-                    logging.debug("[%s] Estimated current: %.3fA.", self.__class__.__name__, current_estimated)
+                logging.debug(
+                    "[%s] Estimated current: %.3fA.",
+                    self.__class__.__name__,
+                    current_estimated,
+                )
                     break
 
-                self.__screen[(self.__screen & (0b111 << 5)) > 0] -= (1 << 5)
+            self.__screen[(self.__screen & (0b111 << 5)) > 0] -= 1 << 5
+        else:
+            logging.warning("[%s] Screen dimmed to the maximum.", self.__class__.__name__)
 
         packed = self.pack(self.__screen)
 

@@ -59,7 +59,7 @@ parser_display = subparsers.add_parser(
 parser_display.add_argument("server", type=str, help="server address")
 parser_display.add_argument("-p", "--port", type=int, default=7777, help="server port")
 parser_display.add_argument(
-    "-c", "--current", type=float, default=0, help="maximum current in Amperes"
+    "-c", "--current", type=float, default=float("inf"), help="maximum current in Amperes"
 )
 
 args = parser.parse_args()
@@ -72,7 +72,7 @@ logging.basicConfig(format="%(levelname)s:%(message)s", level=logging_level)
 if hasattr(args, "frames"):  # pragma: no cover
     args.server = "0.0.0.0"
     args.port = 7777
-    args.current = 1.0
+    args.current = 0.5
     filename = os.path.join(args.dir, args.animation)
     Save(filename, frames=args.frames, port=args.port)
 
