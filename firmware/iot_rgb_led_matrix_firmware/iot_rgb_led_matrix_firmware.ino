@@ -119,6 +119,9 @@ void setupOTA()
         Serial.println("End Failed");
     }
 
+    // Pause to display error code.
+    vTaskDelay(5000);
+
     // Resume normal operation when an error has occurred.
     vTaskResume(listen_task_handle);
     esp_task_wdt_add(listen_task_handle);
