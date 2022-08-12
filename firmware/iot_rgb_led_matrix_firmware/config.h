@@ -39,15 +39,15 @@ static uint8_t PIN_RGB[] = {
 
 namespace Config
 {
-  /** \brief Static IP of the LED matrix. */
+  /** \brief Default static IP of the LED matrix. */
   char static_ip[16] = "192.168.1.254";
-  /** \brief Static gateway. */
+  /** \brief Default static gateway. */
   char static_gw[16] = "192.168.1.1";
-  /** \brief Static subnet. */
+  /** \brief Default static subnet. */
   char static_sn[16] = "255.255.255.0";
-  /** \brief Server port of the LED matrix. */
+  /** \brief Default server port of the LED matrix. */
   char port[8] = "7777";
-  /** \brief Restart timeout when no data has been recieved, in seconds. */
+  /** \brief Default restart timeout when no data has been recieved, in seconds. */
   char timeout[8] = "120";
 
   void save()

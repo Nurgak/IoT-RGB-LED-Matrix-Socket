@@ -1,6 +1,7 @@
 /**
  \file
  \brief Main program file for the IOT RGB LED Matrix.
+ All parameters are set through the web portal when WiFi credentials are configured.
  \see https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket
 */
 #include <WiFiManager.h>
@@ -17,7 +18,7 @@ RGBmatrixPanel matrix(PIN_A, PIN_B, PIN_C, PIN_D, PIN_CLK, PIN_LAT, PIN_OE, fals
 
 /** \brief Flag to indicate if configuration should be saved to SPIFFS. */
 bool should_save_config = false;
-/** \brief Unique device indentifier, partially populated with WiFi MAC address. */
+/** \brief Unique device identifier, partially populated with WiFi MAC address. */
 char identifier[24];
 /** \brief Listen task handle, used for pausing/resuming and watchdog checking. */
 TaskHandle_t listen_task_handle;
