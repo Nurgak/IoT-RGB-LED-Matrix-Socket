@@ -9,6 +9,7 @@ ENV ANIMATION=analog_clock.AnalogClock \
     KEY="" \
     CITY="" \
     TEXT="" \
+    CURRENT=100 \
     PYTHONPATH=/root/ws/client
 
 EXPOSE ${PORT}
@@ -24,4 +25,5 @@ RUN apt-get update && \
     pip install --no-cache-dir -r requirements.txt
 
 CMD client/main.py "${ANIMATION}" --width "${WIDTH}" --height "${HEIGHT}"  --key "${KEY}" \
-    --city "${CITY}" --timezone "${TZ}" --text "${TEXT}" display "${HOST_IP}" --port "${PORT}"
+    --city "${CITY}" --timezone "${TZ}" --text "${TEXT}" display "${HOST_IP}" --port "${PORT}" \
+    --current "${CURRENT}"

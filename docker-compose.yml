@@ -13,3 +13,4 @@ services:
       - KEY=OPENWEATHERMAP_API_KEY
       - CITY=Tokyo
       - TEXT=test
+      - CURRENT=100
