@@ -1,9 +1,10 @@
 /**
- \file
- \brief Main program file for the IOT RGB LED Matrix.
- All parameters are set through the web portal when WiFi credentials are configured.
- \see https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket
-*/
+ * \file
+ * \brief Main program file for the IOT RGB LED Matrix.
+ *
+ * All parameters are set through the web portal when WiFi credentials are configured.
+ * \see https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket
+ */
 #include <WiFiManager.h>
 #include <ArduinoOTA.h>
 

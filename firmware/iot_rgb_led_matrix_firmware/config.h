@@ -1,8 +1,8 @@
 /**
- \file config.h
- \brief Configuration file for the IOT RGB LED Matrix.
- \see https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket
-*/
+ * \file config.h
+ * \brief Configuration file for the IOT RGB LED Matrix.
+ * \see https://github.com/Nurgak/IoT-RGB-LED-Matrix-Socket
+ */
 #pragma once
 
 #include <ArduinoJson.h>
