@@ -32,6 +32,12 @@ class Matrix(Animate):
             font: Text,
             font_size: tuple,
         ):
+            """! Constructor.
+            @param characters Allowable characters in the column.
+            @param offset_column Column offset in pixels from the left.
+            @param font Text font.
+            @param font_size Text font size.
+            """
             self.__characters = characters
             self.__font = font
             self.__offsets = (offset_column * font_size[0], font_size[1])

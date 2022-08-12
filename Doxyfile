@@ -3,7 +3,8 @@ PROJECT_NUMBER         = "Branch: $(BRANCH), commit: $(COMMIT)"
 PROJECT_BRIEF          = "Animation generation scripts"
 OUTPUT_DIRECTORY       = ./docs
 INPUT                  =
-FILE_PATTERNS          = *.md *.py
+FILE_PATTERNS          = *.md *.py *.h *.ino
+EXTENSION_MAPPING      = ino=c
 EXCLUDE_PATTERNS       = main.py
 RECURSIVE              = YES
 IMAGE_PATH             = client/media
