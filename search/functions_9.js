@@ -1,20 +1,10 @@
 var searchData=
 [
-  ['temperature_0',['temperature',['../classclient_1_1src_1_1weather_1_1Weather.html#ac433ca62d09bc6bb9f3b8240aa0d18b3',1,'client::src::weather::Weather']]],
-  ['test_5fanalog_5fclock_1',['test_analog_clock',['../namespaceclient_1_1test_1_1test__animation.html#a7c6e3d850556e4e74521ca2b4b7d77c6',1,'client::test::test_animation']]],
-  ['test_5ffire_2',['test_fire',['../namespaceclient_1_1test_1_1test__animation.html#ac048de0fcce19b1073e5dfa096d66905',1,'client::test::test_animation']]],
-  ['test_5ffire_5f16_3',['test_fire_16',['../namespaceclient_1_1test_1_1test__animation.html#aad3d5532fdb5842f81b8d685d1be283a',1,'client::test::test_animation']]],
-  ['test_5fgame_5fof_5flife_5fcolor_4',['test_game_of_life_color',['../namespaceclient_1_1test_1_1test__animation.html#a8534abd321eac0fa5977b95a440182b1',1,'client::test::test_animation']]],
-  ['test_5fgame_5fof_5flife_5ffast_5',['test_game_of_life_fast',['../namespaceclient_1_1test_1_1test__animation.html#a730655defb623938008feaf07020146a',1,'client::test::test_animation']]],
-  ['test_5fgrowing_5ftree_6',['test_growing_tree',['../namespaceclient_1_1test_1_1test__animation.html#a9be4b3ab276fd56fa193be6db94e7b52',1,'client::test::test_animation']]],
-  ['test_5fhilbert_7',['test_hilbert',['../namespaceclient_1_1test_1_1test__animation.html#a929b4461f3b04a335b43c6b7e04533ad',1,'client::test::test_animation']]],
-  ['test_5fmandelbrot_8',['test_mandelbrot',['../namespaceclient_1_1test_1_1test__animation.html#a64b2583ee7006b9ce8758ce328724f15',1,'client::test::test_animation']]],
-  ['test_5fmatrix_9',['test_matrix',['../namespaceclient_1_1test_1_1test__animation.html#a6ff9d64f0801bc10dea04a4973f0e092',1,'client::test::test_animation']]],
-  ['test_5fopenweathermap_5finvalid_10',['test_openweathermap_invalid',['../namespaceclient_1_1test_1_1test__animation.html#ac9ae8c278ba1e566e05f32e8cf24d28c',1,'client::test::test_animation']]],
-  ['test_5fopenweathermap_5fvalid_11',['test_openweathermap_valid',['../namespaceclient_1_1test_1_1test__animation.html#a26bfafd28a71a4a1e8132c8c9e567398',1,'client::test::test_animation']]],
-  ['test_5fqr_5fcode_12',['test_qr_code',['../namespaceclient_1_1test_1_1test__animation.html#a15896d3b7fc3b68b8accda18c60e17a8',1,'client::test::test_animation']]],
-  ['test_5fsnow_13',['test_snow',['../namespaceclient_1_1test_1_1test__animation.html#a92c8d6e967821183b1da9d7f99cc2b4d',1,'client::test::test_animation']]],
-  ['test_5fwater_14',['test_water',['../namespaceclient_1_1test_1_1test__animation.html#ae7459310c6fa9216b4e2b6f74615eaf6',1,'client::test::test_animation']]],
-  ['test_5fword_5fclock_5fenglish_15',['test_word_clock_english',['../namespaceclient_1_1test_1_1test__animation.html#af4a10ef7725279e9fc316aff9be0599c',1,'client::test::test_animation']]],
-  ['test_5fword_5fclock_5fjapanese_16',['test_word_clock_japanese',['../namespaceclient_1_1test_1_1test__animation.html#a90c5ca9016830c7f2fdba44c1c8df4df',1,'client::test::test_animation']]]
+  ['save_0',['save',['../classclient_1_1src_1_1save_1_1Save.html#a1d44d48ef9561a1e0825ba12f85bba9a',1,'client.src.save.Save.save()'],['../config_8h.html#ae7e68962f22a2c965a61702de1c637db',1,'Config::save()']]],
+  ['saveconfigcallback_1',['saveConfigCallback',['../iot__rgb__led__matrix__firmware_8ino.html#a3a93d19401009ce28e89880837e3ec79',1,'iot_rgb_led_matrix_firmware.ino']]],
+  ['second_2',['second',['../classclient_1_1src_1_1localtime_1_1Localtime.html#a944fd1b476fc81101ab1a3689c003e78',1,'client::src::localtime::Localtime']]],
+  ['set_5ftime_3',['set_time',['../classclient_1_1src_1_1localtime_1_1Localtime.html#a03801d7a132189f7dbc4f5dd8d552937',1,'client::src::localtime::Localtime']]],
+  ['setup_4',['setup',['../iot__rgb__led__matrix__firmware_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'iot_rgb_led_matrix_firmware.ino']]],
+  ['setupota_5',['setupOTA',['../iot__rgb__led__matrix__firmware_8ino.html#a4f09d92897fdf84125059cf3bb5a55d5',1,'iot_rgb_led_matrix_firmware.ino']]],
+  ['setupwifi_6',['setupWifi',['../iot__rgb__led__matrix__firmware_8ino.html#aad42151da76d6be3b12c356b4b2e74f6',1,'iot_rgb_led_matrix_firmware.ino']]]
 ];
