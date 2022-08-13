@@ -10,20 +10,19 @@ ENV ANIMATION=analog_clock.AnalogClock \
     CITY="" \
     TEXT="" \
     CURRENT=100 \
+    ARGS="" \
     PYTHONPATH=/root/ws/client
 
 EXPOSE ${PORT}
 COPY . .
-# hadolint ignore=DL3008
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-    python3-opencv \
-    python3-numpy \
-    python3-pil \
-    python3-pip && \
-    rm -rf /var/lib/apt/lists/* && \
-    pip install --no-cache-dir -r requirements.txt
 
-CMD client/main.py "${ANIMATION}" --width "${WIDTH}" --height "${HEIGHT}"  --key "${KEY}" \
-    --city "${CITY}" --timezone "${TZ}" --text "${TEXT}" display "${HOST_IP}" --port "${PORT}" \
-    --current "${CURRENT}"
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+    python3-opencv=4.5.* \
+    python3-numpy=1:1.19.* \
+    python3-pil=8.1.* \
+    python3-pip=20.3.* \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir -r requirements.txt
+
+CMD ["./main.sh"]
